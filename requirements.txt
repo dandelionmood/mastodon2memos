@@ -1,0 +1,6 @@
+Mastodon.py
+click
+PyYAML
+requests
+faker
+html2text
