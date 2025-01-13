@@ -1,6 +1,6 @@
 # Configuration files should never be in version control
-!config.yaml
-!config_test.yaml
+config.yaml
+config_test.yaml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

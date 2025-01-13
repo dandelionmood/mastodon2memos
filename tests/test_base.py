@@ -13,14 +13,17 @@ class BaseTest(unittest.TestCase):
 
     def _get_memos_client(self) -> MemosClient:
         return MemosClient(
-            api_base_url=self.config['memos_api_base_url'], 
-            access_token=self.config['memos_access_token']
+            api_base_url=self.config['memos']['api_url'], 
+            access_token=self.config['memos']['access_token']
         )
 
     def _get_mastodon_client(self) -> MastodonClient:
         return MastodonClient(
-            api_base_url=self.config['api_base_url'],
-            client_id=self.config['client_id'],
-            client_secret=self.config['client_secret'],
-            access_token=self.config['access_token']
+            api_base_url=self.config['mastodon']['api_url'],
+            client_id=self.config['mastodon']['client_id'],
+            client_secret=self.config['mastodon']['client_secret'],
+            access_token=self.config['mastodon']['access_token']
         )
+
+    def get_mastodon_username(self):
+        return self.config['mastodon']['username']
