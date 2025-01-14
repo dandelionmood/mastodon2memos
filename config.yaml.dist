@@ -1,0 +1,22 @@
+mastodon:
+  # Base URL of the Mastodon instance
+  api_url: 'https://example.com'
+
+  # Client ID for the Mastodon application
+  client_id: 'mockClientID'
+
+  # Client Secret for the Mastodon application
+  client_secret: 'mockClientSecret'
+
+  # Access Token for the Mastodon application
+  access_token: 'mockAccessToken'
+
+  # Mastodon user name
+  username: 'mockUsername'
+
+memos:
+  # Base URL of the Memos instance
+  api_url: 'http://localhost:3001'
+
+  # Access Token for the Memos application
+  access_token: 'mockAccessToken'
