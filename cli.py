@@ -1,5 +1,7 @@
+import pprint
 import click
 import yaml
+import os
 
 from mastodon2memos.mastodon import MastodonClient
 from mastodon2memos.memos import MemosClient
@@ -12,11 +14,15 @@ def cli():
 @click.command(name='mastodon2memos', 
                help='Publish Mastodon toots as Memos.')
 @click.option('--interactive', is_flag=True, help='Ask before creating a new memo from a toot.')
-def mastodon2memos(interactive):
+@click.option('--config-path', default='config.yaml', help='Path to the configuration file.')
+def mastodon2memos(interactive, config_path):
     """CLI tool to publish Mastodon toots as Memos."""
 
+    # Validate and read the configuration file
+    _validate_and_read_config(config_path)
+
     # Initialize the Mastodon and Memos clients
-    _initialize_clients()
+    _initialize_clients(report_success=False)
 
     # Get the user ID from the Mastodon username
     user_id = mastodon_client.get_user_id_from_username(config['mastodon']['username'])
@@ -43,36 +49,60 @@ def mastodon2memos(interactive):
 
 @click.command(name='troubleshoot', 
                help='Ensure proper connection to both Mastodon and Memos APIs.')
-def troubleshoot():
+@click.option('--config-path', default='config.yaml', help='Path to the configuration file.')
+def troubleshoot(config_path):
     """CLI tool to ensure proper connection to both Mastodon and Memos APIs."""
 
-    # Initialize the Mastodon and Memos clients
-    _initialize_clients()
+    # Validate and read the configuration file
+    _validate_and_read_config(config_path)
 
-    # Test Mastodon connection
-    mastodon_status = mastodon_client.test_connection()
-    if mastodon_status:
-        click.echo('Successfully connected to Mastodon API.')
-    else:
-        click.echo('Failed to connect to Mastodon API.')
-        return False
+    # Initialize the Mastodon and Memos clients and report success
+    _initialize_clients(report_success=True)
 
-    # Test Memos connection
-    memos_status = memos_client.test_connection()
-    if memos_status:
-        click.echo('Successfully connected to Memos API.')
+    # Check if the Mastodon username can be resolved to a user ID
+    user_id = mastodon_client.get_user_id_from_username(config['mastodon']['username'])
+    if user_id:
+        click.echo(f'Successfully resolved Mastodon username to user ID: {user_id}')
     else:
-        click.echo('Failed to connect to Memos API.')
-        return False
+        click.echo('Failed to resolve Mastodon username to user ID.')
+        exit(1)
+
+    # At this point, we can assume that the connection to both APIs is successful
 
     return True
 
-def _initialize_clients(config_path='config.yaml'):
-    """Initialize Mastodon and Memos clients and set them as global variables."""
-    global mastodon_client, memos_client, config
+def _validate_and_read_config(config_path):
+    """
+    Validate and read the configuration file.
+    :param config_path: Path to the configuration file.
+    """
+    global config
+
+    if not os.path.exists(config_path):
+        click.echo(f'Configuration file not found at {config_path}. Please ensure the file exists.')
+        exit(1)
+
     with open(config_path, 'r') as file:
         config = yaml.safe_load(file)
-    
+
+    expected_keys = {
+        'mastodon': ['api_url', 'client_id', 'client_secret', 'access_token', 'username'],
+        'memos': ['api_url', 'access_token']
+    }
+
+    for section, keys in expected_keys.items():
+        if section not in config:
+            click.echo(f'Missing section "{section}" in configuration file.')
+            exit(1)
+        for key in keys:
+            if key not in config[section]:
+                click.echo(f'Missing key "{key}" in section "{section}" of configuration file.')
+                exit(1)
+
+def _initialize_clients(report_success):
+    """Initialize Mastodon and Memos clients."""
+    global mastodon_client, memos_client
+
     mastodon_client = MastodonClient(
         api_base_url=config['mastodon']['api_url'],
         client_id=config['mastodon']['client_id'],
@@ -83,6 +113,24 @@ def _initialize_clients(config_path='config.yaml'):
         api_base_url=config['memos']['api_url'],
         access_token=config['memos']['access_token']
     )
+
+    # Test Mastodon connection
+    mastodon_status = mastodon_client.test_connection()
+    if mastodon_status:
+        if report_success:
+            click.echo('Successfully connected to Mastodon API.')
+    else:
+        click.echo('Failed to connect to Mastodon API.')
+        exit(1)
+
+    # Test Memos connection
+    memos_status = memos_client.test_connection()
+    if memos_status:
+        if report_success:
+            click.echo('Successfully connected to Memos API.')
+    else:
+        click.echo('Failed to connect to Memos API.')
+        exit(1)
 
 cli.add_command(mastodon2memos)
 cli.add_command(troubleshoot)

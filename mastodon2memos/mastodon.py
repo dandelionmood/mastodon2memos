@@ -27,7 +27,7 @@ class MastodonClient:
         except Exception as e:
             return False
 
-    def get_user_id_from_username(self, username) -> int:
+    def get_user_id_from_username(self, username: str) -> int:
         """
         Get the user ID from a given Mastodon username.
         :param username: The Mastodon username.
