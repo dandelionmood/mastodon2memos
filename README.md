@@ -29,6 +29,9 @@ Copy the example configuration file to the expected location:
 ```sh
 cp config.yaml.dist config.yaml
 ```
+**Notes:** 
+- `config.yaml` is the default configuration file name, and it is expected to be in the root directory of the project by default. 
+- Both commands can be run using the optional `--config-path` option which allows you to specify an alternative path to the configuration file. 
 
 ### Mastodon settings 
 
@@ -52,7 +55,7 @@ Generate an access token from the settings of the target account. Go to the "My 
 
 ### Is everything alright?
 
-Ensure that the connection to both the Mastodon and Memos instances can be properly established using the troubleshoot command.
+Ensure that the connection to both the Mastodon and Memos instances can be properly established using the `troubleshoot` command.
 
 To run the command, execute the following:
 
@@ -62,9 +65,14 @@ python cli.py troubleshoot
 
 This will check the status of the connections and let you know if something is not set up properly.
 
+The troubleshoot command performs the following checks and provide explicit feedback:
+- Is the configuration file in the expected location?
+- Are all the expected configuration keys present in the configuration file?
+- Can the specified Mastodon `username` be resolved to a user_id?
+
 ### Mastodon2Memos
 
-If the troubleshoot command is successful, you can move on to using the `mastodon2memos` command.
+If the `troubleshoot` command is successful, you can move on to using the `mastodon2memos` command.
 
 **Important notes:**
 - The script currently takes the last 30 toots and tries to import them. Anything older than that will be ignored.
