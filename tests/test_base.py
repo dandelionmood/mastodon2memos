@@ -2,8 +2,8 @@ import os
 import unittest
 import yaml
 
-from mastodon2memos.memos import MemosClient
-from mastodon2memos.mastodon import MastodonClient
+from mastodon2memos.clients.memos import MemosClient
+from mastodon2memos.clients.mastodon import MastodonClient
 
 class BaseTest(unittest.TestCase):
     def setUp(self):

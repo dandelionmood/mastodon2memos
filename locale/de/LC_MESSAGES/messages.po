@@ -1,0 +1,132 @@
+# Mastodon to Memos Localization Messages.
+# Copyright (C) 2025 Pierre QUILLERY
+# This file is distributed under the same license as the Mastodon2Memos package.
+# Pierre <pierre@quillery.fr>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mastodon2Memos 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-15 21:55+0100\n"
+"PO-Revision-Date: 2025-01-15 21:44+0100\n"
+"Last-Translator: Pierre Quillery <pierre@quillery.fr>\n"
+"Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: mastodon2memos/commands/__init__.py:16
+#: mastodon2memos/commands/commands.py:16
+#, python-brace-format
+msgid ""
+"Configuration file not found at {config_path}. Please ensure the file exists."
+msgstr ""
+"Konfigurationsdatei nicht gefunden unter {config_path}. Bitte stellen Sie "
+"sicher, dass die Datei existiert."
+
+#: mastodon2memos/commands/__init__.py:29
+#: mastodon2memos/commands/commands.py:29
+#, python-brace-format
+msgid "Missing section \"{section}\" in configuration file."
+msgstr "Fehlender Abschnitt \"{section}\" in der Konfigurationsdatei."
+
+#: mastodon2memos/commands/__init__.py:33
+#: mastodon2memos/commands/commands.py:33
+#, python-brace-format
+msgid "Missing key \"{key}\" in section \"{section}\" of configuration file."
+msgstr ""
+"Fehlender Schlüssel \"{key}\" im Abschnitt \"{section}\" der "
+"Konfigurationsdatei."
+
+#: mastodon2memos/commands/__init__.py:60
+#: mastodon2memos/commands/commands.py:60
+msgid "Successfully connected to Mastodon API."
+msgstr "Erfolgreich mit der Mastodon API verbunden."
+
+#: mastodon2memos/commands/__init__.py:62
+#: mastodon2memos/commands/commands.py:62
+msgid "Failed to connect to Mastodon API."
+msgstr "Verbindung zur Mastodon API fehlgeschlagen."
+
+#: mastodon2memos/commands/__init__.py:69
+#: mastodon2memos/commands/commands.py:69
+msgid "Successfully connected to Memos API."
+msgstr "Erfolgreich mit der Memos API verbunden."
+
+#: mastodon2memos/commands/__init__.py:71
+#: mastodon2memos/commands/commands.py:71
+msgid "Failed to connect to Memos API."
+msgstr "Verbindung zur Memos API fehlgeschlagen."
+
+#: mastodon2memos/commands/mastodon2memos.py:6
+msgid "Publish Mastodon toots as Memos."
+msgstr "Veröffentliche Mastodon Toots als Memos."
+
+#: mastodon2memos/commands/mastodon2memos.py:7
+msgid "Ask before creating a new memo from a toot."
+msgstr "Fragen, bevor ein neues Memo aus einem Toot erstellt wird."
+
+#: mastodon2memos/commands/mastodon2memos.py:8
+#: mastodon2memos/commands/troubleshoot.py:7
+msgid "Path to the configuration file."
+msgstr "Pfad zur Konfigurationsdatei."
+
+#: mastodon2memos/commands/mastodon2memos.py:25
+#, python-brace-format
+msgid "Processing toot: {url}"
+msgstr "Verarbeite Toot: {url}"
+
+#: mastodon2memos/commands/mastodon2memos.py:28
+#, python-brace-format
+msgid ""
+"Do you want to attempt publishing this toot as a memo?\n"
+"{content}\n"
+"{url}?"
+msgstr ""
+"Möchten Sie versuchen, diesen Toot als Memo zu veröffentlichen?\n"
+"{content}\n"
+"{url}?"
+
+#: mastodon2memos/commands/mastodon2memos.py:29
+msgid "Skipping toot."
+msgstr "Toot überspringen."
+
+#: mastodon2memos/commands/mastodon2memos.py:33
+msgid "New toot added to memos."
+msgstr "Neuer Toot zu Memos hinzugefügt."
+
+#: mastodon2memos/commands/mastodon2memos.py:35
+msgid "No memo added, toot was already saved in memos."
+msgstr "Kein Memo hinzugefügt, Toot war bereits in Memos gespeichert."
+
+#: mastodon2memos/commands/mastodon2memos.py:37
+msgid "Finished processing toots."
+msgstr "Verarbeitung der Toots abgeschlossen."
+
+#: mastodon2memos/commands/troubleshoot.py:6
+msgid "Ensure proper connection to both Mastodon and Memos APIs."
+msgstr ""
+"Stellen Sie sicher, dass eine ordnungsgemäße Verbindung zu beiden APIs von "
+"Mastodon und Memos besteht."
+
+#: mastodon2memos/commands/troubleshoot.py:20
+#, python-brace-format
+msgid "Successfully resolved Mastodon username to user ID: {user_id}"
+msgstr "Mastodon-Benutzername erfolgreich in Benutzer-ID aufgelöst: {user_id}"
+
+#: mastodon2memos/commands/troubleshoot.py:22
+msgid "Failed to resolve Mastodon username to user ID."
+msgstr "Fehler beim Auflösen des Mastodon-Benutzernamens in Benutzer-ID."
+
+#: mastodon2memos/clients/mastodon.py:51
+#, python-brace-format
+msgid "Failed to fetch latest public toots: {error}"
+msgstr "Fehler beim Abrufen der neuesten öffentlichen Toots: {error}"
+
+#: mastodon2memos/clients/memos.py:42
+#, fuzzy, python-brace-format
+msgid "> 🌐 [original toot]({url}) posted by [{acct}]({account_url}) #{tag}"
+msgstr ""
+"> 🌐 [original toot]({url}) gepostet von [{acct}]({account_url}) #{tag}"

@@ -1,0 +1,122 @@
+# Mastodon to Memos Localization Messages.
+# Copyright (C) 2025 Pierre QUILLERY
+# This file is distributed under the same license as the Mastodon2Memos package.
+# Pierre <pierre@quillery.fr>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mastodon2Memos 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-15 21:55+0100\n"
+"PO-Revision-Date: 2025-01-15 22:06+0100\n"
+"Last-Translator: Pierre Quillery <pierre@quillery.fr>\n"
+"Language-Team: Korean <translation-team-ko@googlegroups.com>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: mastodon2memos/commands/__init__.py:16
+#: mastodon2memos/commands/commands.py:16
+#, python-brace-format
+msgid ""
+"Configuration file not found at {config_path}. Please ensure the file exists."
+msgstr "{config_path}에서 구성 파일을 찾을 수 없습니다. 파일이 존재하는지 확인하십시오."
+
+#: mastodon2memos/commands/__init__.py:29
+#: mastodon2memos/commands/commands.py:29
+#, python-brace-format
+msgid "Missing section \"{section}\" in configuration file."
+msgstr "구성 파일에 \"{section}\" 섹션이 없습니다."
+
+#: mastodon2memos/commands/__init__.py:33
+#: mastodon2memos/commands/commands.py:33
+#, python-brace-format
+msgid "Missing key \"{key}\" in section \"{section}\" of configuration file."
+msgstr "구성 파일의 \"{section}\" 섹션에 \"{key}\" 키가 없습니다."
+
+#: mastodon2memos/commands/__init__.py:60
+#: mastodon2memos/commands/commands.py:60
+msgid "Successfully connected to Mastodon API."
+msgstr "Mastodon API에 성공적으로 연결되었습니다."
+
+#: mastodon2memos/commands/__init__.py:62
+#: mastodon2memos/commands/commands.py:62
+msgid "Failed to connect to Mastodon API."
+msgstr "Mastodon API에 연결하지 못했습니다."
+
+#: mastodon2memos/commands/__init__.py:69
+#: mastodon2memos/commands/commands.py:69
+msgid "Successfully connected to Memos API."
+msgstr "Memos API에 성공적으로 연결되었습니다."
+
+#: mastodon2memos/commands/__init__.py:71
+#: mastodon2memos/commands/commands.py:71
+msgid "Failed to connect to Memos API."
+msgstr "Memos API에 연결하지 못했습니다."
+
+#: mastodon2memos/commands/mastodon2memos.py:6
+msgid "Publish Mastodon toots as Memos."
+msgstr "Mastodon toot을 Memos로 게시합니다."
+
+#: mastodon2memos/commands/mastodon2memos.py:7
+msgid "Ask before creating a new memo from a toot."
+msgstr "toot에서 새 메모를 만들기 전에 묻기."
+
+#: mastodon2memos/commands/mastodon2memos.py:8
+#: mastodon2memos/commands/troubleshoot.py:7
+msgid "Path to the configuration file."
+msgstr "구성 파일의 경로."
+
+#: mastodon2memos/commands/mastodon2memos.py:25
+#, python-brace-format
+msgid "Processing toot: {url}"
+msgstr "toot 처리 중: {url}"
+
+#: mastodon2memos/commands/mastodon2memos.py:28
+#, python-brace-format
+msgid ""
+"Do you want to attempt publishing this toot as a memo?\n"
+"{content}\n"
+"{url}?"
+msgstr "이 toot을 메모로 게시하시겠습니까?\n{content}\n{url}?"
+
+#: mastodon2memos/commands/mastodon2memos.py:29
+msgid "Skipping toot."
+msgstr "toot 건너뛰기."
+
+#: mastodon2memos/commands/mastodon2memos.py:33
+msgid "New toot added to memos."
+msgstr "새 toot이 메모에 추가되었습니다."
+
+#: mastodon2memos/commands/mastodon2memos.py:35
+msgid "No memo added, toot was already saved in memos."
+msgstr "메모가 추가되지 않았습니다. toot이 이미 메모에 저장되었습니다."
+
+#: mastodon2memos/commands/mastodon2memos.py:37
+msgid "Finished processing toots."
+msgstr "toot 처리 완료."
+
+#: mastodon2memos/commands/troubleshoot.py:6
+msgid "Ensure proper connection to both Mastodon and Memos APIs."
+msgstr "Mastodon 및 Memos API에 올바르게 연결되었는지 확인하십시오."
+
+#: mastodon2memos/commands/troubleshoot.py:20
+#, python-brace-format
+msgid "Successfully resolved Mastodon username to user ID: {user_id}"
+msgstr "Mastodon 사용자 이름을 사용자 ID로 성공적으로 확인했습니다: {user_id}"
+
+#: mastodon2memos/commands/troubleshoot.py:22
+msgid "Failed to resolve Mastodon username to user ID."
+msgstr "Mastodon 사용자 이름을 사용자 ID로 확인하지 못했습니다."
+
+#: mastodon2memos/clients/mastodon.py:51
+#, python-brace-format
+msgid "Failed to fetch latest public toots: {error}"
+msgstr "최신 공개 toot을 가져오지 못했습니다: {error}"
+
+#: mastodon2memos/clients/memos.py:42
+#, fuzzy, python-brace-format
+msgid "> 🌐 [original toot]({url}) posted by [{acct}]({account_url}) #{tag}"
+msgstr "> 🌐 [{acct}]({account_url})이(가) 게시한 [원본 toot]({url}) #{tag}"

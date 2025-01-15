@@ -1,4 +1,5 @@
 from mastodon import Mastodon
+from mastodon2memos import _
 
 class MastodonClient:
     def __init__(self, api_base_url, client_id, client_secret, access_token):
@@ -47,4 +48,4 @@ class MastodonClient:
             # Fetch the latest public toots from the user excluding reblogs and replies
             return self.mastodon.account_statuses(user_id, limit=count, exclude_reblogs=True, exclude_replies=True)
         except Exception as e:
-            raise RuntimeError(f"Failed to fetch latest public toots: {e}")
+            raise RuntimeError(_("Failed to fetch latest public toots: {error}").format(error=e))

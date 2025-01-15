@@ -5,6 +5,7 @@ import base64
 import mimetypes
 import uuid
 import tempfile
+from mastodon2memos import _
 
 class MemosClient:
     """
@@ -38,7 +39,8 @@ class MemosClient:
         
         # Adding a signature to the content with notably the original toot URL
         # This is very important as we will use this signature to check if the toot has already been saved as a memo
-        memo_content += f"> 🌐 [Original Toot]({toot['url']}) posted by [{toot['account']['acct']}]({toot['account']['url']}) #{self.MASTODON2MEMOS_TAG}"
+        memo_content += _("> 🌐 [original toot]({url}) posted by [{acct}]({account_url}) #{tag}").format(
+            url=toot['url'], acct=toot['account']['acct'], account_url=toot['account']['url'], tag=self.MASTODON2MEMOS_TAG)
 
         # Create a memo with the toot content
         memo = self._create_memo(memo_content)

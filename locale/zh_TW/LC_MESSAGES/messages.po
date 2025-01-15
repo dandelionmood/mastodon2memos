@@ -1,0 +1,121 @@
+# Mastodon to Memos Localization Messages.
+# Copyright (C) 2025 Pierre QUILLERY
+# This file is distributed under the same license as the Mastodon2Memos package.
+# Pierre <pierre@quillery.fr>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mastodon2Memos 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-15 21:55+0100\n"
+"PO-Revision-Date: 2025-01-15 22:06+0100\n"
+"Last-Translator: Pierre Quillery <pierre@quillery.fr>\n"
+"Language-Team: Chinese (traditional) <zh-l10n@lists.slat.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: mastodon2memos/commands/__init__.py:16
+#: mastodon2memos/commands/commands.py:16
+#, python-brace-format
+msgid ""
+"Configuration file not found at {config_path}. Please ensure the file exists."
+msgstr "在 {config_path} 找不到配置文件。請確保該文件存在。"
+
+#: mastodon2memos/commands/__init__.py:29
+#: mastodon2memos/commands/commands.py:29
+#, python-brace-format
+msgid "Missing section \"{section}\" in configuration file."
+msgstr "配置文件中缺少 \"{section}\" 部分。"
+
+#: mastodon2memos/commands/__init__.py:33
+#: mastodon2memos/commands/commands.py:33
+#, python-brace-format
+msgid "Missing key \"{key}\" in section \"{section}\" of configuration file."
+msgstr "配置文件的 \"{section}\" 部分中缺少 \"{key}\" 鍵。"
+
+#: mastodon2memos/commands/__init__.py:60
+#: mastodon2memos/commands/commands.py:60
+msgid "Successfully connected to Mastodon API."
+msgstr "成功連接到 Mastodon API。"
+
+#: mastodon2memos/commands/__init__.py:62
+#: mastodon2memos/commands/commands.py:62
+msgid "Failed to connect to Mastodon API."
+msgstr "連接 Mastodon API 失敗。"
+
+#: mastodon2memos/commands/__init__.py:69
+#: mastodon2memos/commands/commands.py:69
+msgid "Successfully connected to Memos API."
+msgstr "成功連接到 Memos API。"
+
+#: mastodon2memos/commands/__init__.py:71
+#: mastodon2memos/commands/commands.py:71
+msgid "Failed to connect to Memos API."
+msgstr "連接 Memos API 失敗。"
+
+#: mastodon2memos/commands/mastodon2memos.py:6
+msgid "Publish Mastodon toots as Memos."
+msgstr "將 Mastodon 嘟文發布為 Memos。"
+
+#: mastodon2memos/commands/mastodon2memos.py:7
+msgid "Ask before creating a new memo from a toot."
+msgstr "在從嘟文創建新備忘錄之前詢問。"
+
+#: mastodon2memos/commands/mastodon2memos.py:8
+#: mastodon2memos/commands/troubleshoot.py:7
+msgid "Path to the configuration file."
+msgstr "配置文件的路徑。"
+
+#: mastodon2memos/commands/mastodon2memos.py:25
+#, python-brace-format
+msgid "Processing toot: {url}"
+msgstr "處理嘟文：{url}"
+
+#: mastodon2memos/commands/mastodon2memos.py:28
+#, python-brace-format
+msgid ""
+"Do you want to attempt publishing this toot as a memo?\n"
+"{content}\n"
+"{url}?"
+msgstr "您是否想嘗試將此嘟文發布為備忘錄？\n{content}\n{url}?"
+
+#: mastodon2memos/commands/mastodon2memos.py:29
+msgid "Skipping toot."
+msgstr "跳過嘟文。"
+
+#: mastodon2memos/commands/mastodon2memos.py:33
+msgid "New toot added to memos."
+msgstr "新嘟文已添加到備忘錄。"
+
+#: mastodon2memos/commands/mastodon2memos.py:35
+msgid "No memo added, toot was already saved in memos."
+msgstr "未添加備忘錄，嘟文已保存在備忘錄中。"
+
+#: mastodon2memos/commands/mastodon2memos.py:37
+msgid "Finished processing toots."
+msgstr "完成處理嘟文。"
+
+#: mastodon2memos/commands/troubleshoot.py:6
+msgid "Ensure proper connection to both Mastodon and Memos APIs."
+msgstr "確保正確連接到 Mastodon 和 Memos API。"
+
+#: mastodon2memos/commands/troubleshoot.py:20
+#, python-brace-format
+msgid "Successfully resolved Mastodon username to user ID: {user_id}"
+msgstr "成功將 Mastodon 用戶名解析為用戶 ID：{user_id}"
+
+#: mastodon2memos/commands/troubleshoot.py:22
+msgid "Failed to resolve Mastodon username to user ID."
+msgstr "無法將 Mastodon 用戶名解析為用戶 ID。"
+
+#: mastodon2memos/clients/mastodon.py:51
+#, python-brace-format
+msgid "Failed to fetch latest public toots: {error}"
+msgstr "無法獲取最新的公共嘟文：{error}"
+
+#: mastodon2memos/clients/memos.py:42
+#, fuzzy, python-brace-format
+msgid "> 🌐 [original toot]({url}) posted by [{acct}]({account_url}) #{tag}"
+msgstr "> 🌐 [原始嘟文]({url}) 由 [{acct}]({account_url}) 發布 #{tag}"
