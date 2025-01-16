@@ -1,4 +1,4 @@
-from datetime import timezone, timedelta
+from datetime import timezone, timedelta, datetime
 import unittest
 from faker import Faker
 
@@ -43,7 +43,7 @@ class TestMemosClient(BaseTest):
         fake = Faker()
         return {
             'content': "<br />".join(fake.sentences(nb=3)),
-            'created_at': fake.past_datetime(tzinfo=timezone(timedelta(hours=1))),
+            'created_at': datetime.now().astimezone(),
             'url': url if url else fake.url(),
             'account': {
                 'acct': fake.user_name(),

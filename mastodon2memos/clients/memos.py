@@ -64,7 +64,8 @@ class MemosClient:
             self._upload_resource(
                 file_path=media_file_path,
                 memo_name=memo['name'],
-                external_link=media_url
+                external_link=media_url,
+                created_at=toot['created_at']
             )
 
             # Remove media_file_path file
@@ -144,13 +145,14 @@ class MemosClient:
         response = requests.patch(url, headers=self._headers(), json=payload)
         response.raise_for_status()
 
-    def _upload_resource(self, memo_name: str, file_path: str, external_link: str = '') -> dict:
+    def _upload_resource(self, memo_name: str, file_path: str, external_link: str, created_at) -> dict:
         """
         Uploads a resource to the server.
 
         :param file_path: Path to the file to be uploaded.
         :param memo_name: The name the memo with which the resource is associated (i.e. "memo/1").
-        :param external_link: Optional external link for the resource (e.g.: the toot URL)
+        :param external_link: External link for the resource (e.g.: the toot URL)
+        :param created_at: The created_at date from the toot.
         :return: dict: JSON response from the server.
         """
         url = f'{self.api_base_url}/api/v1/resources'
@@ -167,6 +169,7 @@ class MemosClient:
                 'type': mime_type,
                 'size': file_size,
                 'memo': memo_name,
+                'createTime': created_at.isoformat(),
             }
             response = requests.post(url, headers=self._headers(), json=payload)
         response.raise_for_status()
