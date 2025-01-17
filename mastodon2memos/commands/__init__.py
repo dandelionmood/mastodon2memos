@@ -3,8 +3,8 @@ import yaml
 import click
 from mastodon2memos import _
 
-from mastodon2memos.clients.mastodon import MastodonClient
-from mastodon2memos.clients.memos import MemosClient
+from mastodon2memos.clients.mastodon_client import MastodonClient
+from mastodon2memos.clients.memos_client import MemosClient
 
 def validate_and_read_config(config_path):
     """

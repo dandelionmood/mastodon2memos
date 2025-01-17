@@ -5,13 +5,12 @@ import base64
 import mimetypes
 import uuid
 import tempfile
-from mastodon2memos import _
+from mastodon2memos import MASTODON2MEMOS_TAG, _
 
 class MemosClient:
     """
-    Tag used to identify memos created by this script.
+    Memos Client for interacting with the Memos API.
     """
-    MASTODON2MEMOS_TAG = 'mastodon2memos'
     
     def __init__(self, api_base_url: str, access_token: str) -> None:
         """
@@ -40,7 +39,7 @@ class MemosClient:
         # Adding a signature to the content with notably the original toot URL
         # This is very important as we will use this signature to check if the toot has already been saved as a memo
         memo_content += _("> 🌐 [original toot]({url}) posted by [{acct}]({account_url}) #{tag}").format(
-            url=toot['url'], acct=toot['account']['acct'], account_url=toot['account']['url'], tag=self.MASTODON2MEMOS_TAG)
+            url=toot['url'], acct=toot['account']['acct'], account_url=toot['account']['url'], tag=MASTODON2MEMOS_TAG)
 
         # Create a memo with the toot content
         memo = self._create_memo(memo_content)
@@ -93,7 +92,7 @@ class MemosClient:
         url = f'{self.api_base_url}/api/v1/memos'
         params = {
             # Filter by our mastodon2memos tag and content search to find the memo with the toot URL
-            'filter': f'tag_search == ["{self.MASTODON2MEMOS_TAG}"] && content_search == ["]({toot_url})"]',
+            'filter': f'tag_search == ["{MASTODON2MEMOS_TAG}"] && content_search == ["]({toot_url})"]',
             # There's only one memo to find
             'pageSize': 1
         }

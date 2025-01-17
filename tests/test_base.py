@@ -2,8 +2,8 @@ import os
 import unittest
 import yaml
 
-from mastodon2memos.clients.memos import MemosClient
-from mastodon2memos.clients.mastodon import MastodonClient
+from mastodon2memos.clients.memos_client import MemosClient
+from mastodon2memos.clients.mastodon_client import MastodonClient
 
 class BaseTest(unittest.TestCase):
     def setUp(self):
@@ -25,5 +25,5 @@ class BaseTest(unittest.TestCase):
             access_token=self.config['mastodon']['access_token']
         )
 
-    def get_mastodon_username(self):
+    def _get_mastodon_username(self):
         return self.config['mastodon']['username']

@@ -1,4 +1,4 @@
-from datetime import timezone, timedelta, datetime
+from datetime import datetime
 import unittest
 from faker import Faker
 

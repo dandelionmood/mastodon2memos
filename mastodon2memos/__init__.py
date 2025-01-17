@@ -2,6 +2,14 @@ import os
 import locale
 import gettext
 
+#################
+### CONSTANTS ###
+#################
+"""
+Tag used to identify memos created by this script.
+"""
+MASTODON2MEMOS_TAG = 'mastodon2memos'
+
 ##########################
 ### TRANSLATION SETUP ###
 ##########################
