@@ -1,4 +1,4 @@
-import html2text
+from datetime import datetime
 import requests
 import os
 import base64
@@ -21,96 +21,7 @@ class MemosClient:
         self.api_base_url = api_base_url
         self.access_token = access_token
 
-    def publish_toot_as_memo(self, toot: dict) -> dict:
-        """
-        Publish a toot as a memo on Memos.
-        :param toot: A Mastodon toot object.
-        """
-        # Check if the toot has already been saved as a memo using the URL
-        # See in the signature of the memo content how we add the toot URL
-        if self._is_toot_already_a_memo(toot['url']):
-            return None
-
-        # Convert HTML content to Markdown
-        h = html2text.HTML2Text()
-        h.ignore_links = True
-        memo_content = h.handle(toot['content'])
-        
-        # Adding a signature to the content with notably the original toot URL
-        # This is very important as we will use this signature to check if the toot has already been saved as a memo
-        memo_content += _("> 🌐 [original toot]({url}) posted by [{acct}]({account_url}) #{tag}").format(
-            url=toot['url'], acct=toot['account']['acct'], account_url=toot['account']['url'], tag=MASTODON2MEMOS_TAG)
-
-        # Create a memo with the toot content
-        memo = self._create_memo(memo_content)
-        
-        # Update the created memo with toot original date to ensure consistency
-        self._update_memo(memo['name'], toot['created_at'])
-        
-        # Check if the toot has media attachments
-        for attachment in toot['media_attachments']:
-            media_url = attachment['url']
-            # Extract the file extension
-            file_extension = os.path.splitext(media_url)[1]
-            # Download the media file
-            media_response = requests.get(media_url)
-            with tempfile.NamedTemporaryFile(delete=False, suffix=file_extension) as temp_file:
-                temp_file.write(media_response.content)
-                media_file_path = temp_file.name
-                temp_file.close()
-
-            # Upload the media file to Memos
-            self._upload_resource(
-                file_path=media_file_path,
-                memo_name=memo['name'],
-                external_link=media_url,
-                created_at=toot['created_at']
-            )
-
-            # Remove media_file_path file
-            os.unlink(media_file_path)
-        
-        # Return the memo object
-        return memo
-    
-    def test_connection(self) -> bool:
-        """
-        Test the connection to the Memos API by getting the authentication status.
-        :return: bool: True if the connection is successful, False otherwise.
-        """
-        url = f'{self.api_base_url}/api/v1/auth/status'
-        response = requests.post(url, headers=self._headers())
-        response.raise_for_status()
-        return response.json()['id'] is not None
-
-    def _is_toot_already_a_memo(self, toot_url: str) -> bool:
-        """
-        Checks if a toot is already published as a memo (using its unique URL as a differenciator).
-        :param toot_url: The URL of the toot.
-        :return: bool: True if the toot is already a memo, False otherwise.
-        """
-        url = f'{self.api_base_url}/api/v1/memos'
-        params = {
-            # Filter by our mastodon2memos tag and content search to find the memo with the toot URL
-            'filter': f'tag_search == ["{MASTODON2MEMOS_TAG}"] && content_search == ["]({toot_url})"]',
-            # There's only one memo to find
-            'pageSize': 1
-        }
-        response = requests.get(url, headers=self._headers(), params=params)
-        response.raise_for_status()
-        memos = response.json()
-        return len(memos['memos']) > 0 if memos else False
-
-    def _headers(self) -> dict:
-        """
-        Returns the headers for the API requests.
-        """
-        return {
-            'Authorization': f'Bearer {self.access_token}',
-            'Content-Type': 'application/json'
-        }
-
-    def _create_memo(self, content: str, visibility: str = 'PUBLIC') -> dict:
+    def create(self, content: str, visibility: str = 'PUBLIC') -> dict:
         """
         Creates a new memo.
 
@@ -127,44 +38,56 @@ class MemosClient:
         response.raise_for_status()
         return response.json()
 
-    def _update_memo(self, memo_name: str, created_at) -> None:
+    def update(self, memo_name: str, created_at: datetime) -> None:
         """
-        Updates the memo's createTime, updateTime & displayTime with the toot's created_at date.
-        This ensures that the memo's date is consistent with the toot's date.
+        Updates the memo's createTime, updateTime & displayTime with the post's created_at date.
+        This ensures that the memo's date is consistent with the post's date.
 
         :param memo_id: The ID of the memo to update.
-        :param created_at: The created_at date from the toot.
+        :param created_at: The created_at date from the post.
         """
         url = f'{self.api_base_url}/api/v1/{memo_name}'
+        created_at_rfc3339 = created_at.isoformat()
         payload = {
-            'createTime': created_at.isoformat(),
-            'displayTime': created_at.isoformat(),
-            'updateTime': created_at.isoformat(),
+            'createTime': created_at_rfc3339,
+            'displayTime': created_at_rfc3339,
+            'updateTime': created_at_rfc3339,
         }
         response = requests.patch(url, headers=self._headers(), json=payload)
         response.raise_for_status()
+        return response.json()
 
-    def _upload_resource(self, memo_name: str, file_path: str, external_link: str, created_at) -> dict:
+    def upload_resource(self, memo_name: str, resource_url: str, created_at: datetime) -> dict:
         """
         Uploads a resource to the server.
 
-        :param file_path: Path to the file to be uploaded.
         :param memo_name: The name the memo with which the resource is associated (i.e. "memo/1").
-        :param external_link: External link for the resource (e.g.: the toot URL)
-        :param created_at: The created_at date from the toot.
+        :param resource_url: The URL of the resource.
+        :param created_at: The created_at date from the post.
         :return: dict: JSON response from the server.
         """
-        url = f'{self.api_base_url}/api/v1/resources'
+        # Download the file from resource_url to a temporary location
+        response = requests.get(resource_url)
+        response.raise_for_status()
+        with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(resource_url)[1]) as temp_file:
+            temp_file.write(response.content)
+            file_path = temp_file.name
+
+        # Open the file and read the content 
         with open(file_path, 'rb') as file:
+            # Encode the file content to base64
             file_content = file.read()
             encoded_content = base64.b64encode(file_content).decode('utf-8')
             file_size = os.path.getsize(file_path)
             mime_type = mimetypes.guess_type(file_path)[0]
+            
+            # Upload the resource to the server
+            url = f'{self.api_base_url}/api/v1/resources'
             payload = {
                 'uid': str(uuid.uuid4()),
                 'filename': os.path.basename(file_path),
                 'content': encoded_content,
-                'externalLink': external_link,
+                'externalLink': resource_url,
                 'type': mime_type,
                 'size': file_size,
                 'memo': memo_name,
@@ -173,3 +96,51 @@ class MemosClient:
             response = requests.post(url, headers=self._headers(), json=payload)
         response.raise_for_status()
         return response.json()
+
+    def test_connection(self) -> bool:
+        """
+        Test the connection to the Memos API by getting the authentication status.
+        :return: bool: True if the connection is successful, False otherwise.
+        """
+        url = f'{self.api_base_url}/api/v1/auth/status'
+        response = requests.post(url, headers=self._headers())
+        response.raise_for_status()
+        return response.json()['id'] is not None
+
+    def get_memo_url(self, memo_uid: str) -> str:
+        """
+        Get the URL of a memo.
+        :param memo_uid: The UID of the memo.
+        :return: str: The URL of the memo.
+        """
+        # Get the memo URL using the uid field value and the base URL
+        return f'{self.api_base_url}/m/{memo_uid}'
+
+    def find_by_toot_url(self, toot_url: str) -> dict:
+        """
+        Check if a Mastodon toot is already a Memo.
+        :param toot_url: The URL of the toot.
+        :return: dict: The memo object if the toot is already a Memo, None otherwise.
+        """
+        url = f'{self.api_base_url}/api/v1/memos'
+        params = {
+            'filter': f'tag_search == ["{MASTODON2MEMOS_TAG}"] && content_search == ["]({toot_url})"]',
+            'pageSize': 1
+        }
+        response = requests.get(url, headers=self._headers(), params=params)
+        response.raise_for_status()
+        memos = response.json()
+        # Return the first memo if it exists, None otherwise
+        return memos['memos'][0] if memos and len(memos['memos']) > 0 else None
+
+    # Alias for find_by_toot_url, for clarity and potential future changes.
+    find_by_bluesky_post_url = find_by_toot_url
+    
+    def _headers(self) -> dict:
+        """
+        Returns the headers for the API requests.
+        """
+        return {
+            'Authorization': f'Bearer {self.access_token}',
+            'Content-Type': 'application/json'
+        }

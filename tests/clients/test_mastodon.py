@@ -4,7 +4,7 @@ import random
 
 from mastodon import MastodonNotFoundError
 
-from tests.test_base import BaseTest 
+from tests.test_base import BaseTest
 
 class TestMastodonClient(BaseTest):
     def setUp(self):

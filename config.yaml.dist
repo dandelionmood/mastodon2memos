@@ -1,4 +1,7 @@
 mastodon:
+  # Enable Mastodon integration
+  enabled: false
+
   # Base URL of the Mastodon instance
   api_url: 'https://example.com'
 
@@ -13,6 +16,19 @@ mastodon:
 
   # Mastodon user name
   username: 'mockUsername'
+
+bluesky:
+  # Enable Bluesky integration
+  enabled: false
+  
+  # Base URL of the Memos instance
+  api_url: 'https://bsky.social'
+
+  # Handle for the Bluesky account
+  handle: 'blueskyHandle.bsky.social'
+
+  # Password for the Bluesky account
+  password: 'blueskyPassword'
 
 memos:
   # Base URL of the Memos instance
