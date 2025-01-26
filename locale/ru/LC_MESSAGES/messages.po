@@ -1,0 +1,287 @@
+# Mastodon to Memos Localization Messages.
+# Copyright (C) 2025 Pierre QUILLERY
+# This file is distributed under the same license as the Mastodon2Memos package.
+# Pierre <pierre@quillery.fr>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mastodon2Memos 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-26 15:12+0100\n"
+"PO-Revision-Date: 2025-01-26 15:26+0100\n"
+"Last-Translator: Pierre Quillery <pierre@quillery.fr>\n"
+"Language-Team: Russian <gnu@d07.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: mastodon2memos/commands/__init__.py:17
+#, python-brace-format
+msgid ""
+"Configuration file not found at {config_path}. Please ensure the file exists."
+msgstr ""
+"Конфигурационный файл не найден в {config_path}. Пожалуйста, убедитесь, что файл существует."
+
+#: mastodon2memos/commands/__init__.py:30
+#, python-brace-format
+msgid "Missing section \"{section}\" in configuration file."
+msgstr ""
+"Отсутствует раздел \"{section}\" в конфигурационном файле."
+
+#: mastodon2memos/commands/__init__.py:33
+#, python-brace-format
+msgid "Missing key \"{key}\" in section \"{section}\" of configuration file."
+msgstr ""
+"Отсутствует ключ \"{key}\" в разделе \"{section}\" конфигурационного файла."
+
+#: mastodon2memos/commands/__init__.py:52
+msgid "Failed to connect to Mastodon API."
+msgstr ""
+"Не удалось подключиться к Mastodon API."
+
+#: mastodon2memos/commands/__init__.py:68
+msgid "Failed to connect to Memos API."
+msgstr ""
+"Не удалось подключиться к Memos API."
+
+#: mastodon2memos/commands/__init__.py:85
+msgid "Failed to connect to Bluesky API."
+msgstr ""
+"Не удалось подключиться к Bluesky API."
+
+#: mastodon2memos/commands/bluesky2memos.py:7
+msgid "Publish Bluesky posts as Memos."
+msgstr ""
+"Опубликовать посты Bluesky как Memos."
+
+#: mastodon2memos/commands/bluesky2memos.py:8
+msgid "Ask before creating a new memo from a post."
+msgstr ""
+"Спрашивать перед созданием нового memo из поста."
+
+#: mastodon2memos/commands/bluesky2memos.py:9
+#: mastodon2memos/commands/mastodon2memos.py:9
+#: mastodon2memos/commands/troubleshoot.py:7
+msgid "Path to the configuration file."
+msgstr ""
+"Путь к конфигурационному файлу."
+
+#: mastodon2memos/commands/bluesky2memos.py:21
+msgid "Bluesky is not enabled in the configuration file."
+msgstr ""
+"Bluesky не включен в конфигурационном файле."
+
+#: mastodon2memos/commands/bluesky2memos.py:37
+#, python-brace-format
+msgid "Processing post: {url}"
+msgstr ""
+"Обработка поста: {url}"
+
+#: mastodon2memos/commands/bluesky2memos.py:38
+#: mastodon2memos/commands/mastodon2memos.py:37
+#, python-brace-format
+msgid ""
+"Content:\n"
+"{content}"
+msgstr ""
+"Содержимое:\n"
+"{content}"
+
+#: mastodon2memos/commands/bluesky2memos.py:42
+msgid "Post already saved in memos, skipping."
+msgstr ""
+"Пост уже сохранен в memos, пропускается."
+
+#: mastodon2memos/commands/bluesky2memos.py:46
+msgid "Do you want to attempt publishing this post as a memo?"
+msgstr ""
+"Вы хотите попытаться опубликовать этот пост как memo?"
+
+#: mastodon2memos/commands/bluesky2memos.py:47
+msgid "Skipping post."
+msgstr ""
+"Пропускается пост."
+
+#: mastodon2memos/commands/bluesky2memos.py:52
+msgid "New post added to memos."
+msgstr ""
+"Новый пост добавлен в memos."
+
+#: mastodon2memos/commands/bluesky2memos.py:55
+#: mastodon2memos/commands/mastodon2memos.py:54
+msgid "No memo added, an unexpected error occurred."
+msgstr ""
+"Нет memo, произошла непредвиденная ошибка."
+
+#: mastodon2memos/commands/bluesky2memos.py:59
+msgid "Finished processing posts."
+msgstr ""
+"Завершена обработка постов."
+
+#: mastodon2memos/commands/mastodon2memos.py:7
+msgid "Publish Mastodon toots as Memos."
+msgstr ""
+"Опубликовать посты Mastodon как Memos."
+
+#: mastodon2memos/commands/mastodon2memos.py:8
+msgid "Ask before creating a new memo from a toot."
+msgstr ""
+"Спрашивать перед созданием нового memo из поста."
+
+#: mastodon2memos/commands/mastodon2memos.py:21
+msgid "Mastodon is not enabled in the configuration file."
+msgstr ""
+"Mastodon не включен в конфигурационном файле."
+
+#: mastodon2memos/commands/mastodon2memos.py:36
+#, python-brace-format
+msgid "Processing toot: {url}"
+msgstr ""
+"Обработка поста: {url}"
+
+#: mastodon2memos/commands/mastodon2memos.py:41
+msgid "Toot already saved in memos, skipping."
+msgstr ""
+"Пост уже сохранен в memos, пропускается."
+
+#: mastodon2memos/commands/mastodon2memos.py:45
+msgid "Do you want to attempt publishing this toot as a memo?"
+msgstr ""
+"Вы хотите попытаться опубликовать этот пост как memo?"
+
+#: mastodon2memos/commands/mastodon2memos.py:46
+msgid "Skipping toot."
+msgstr ""
+"Пропускается пост."
+
+#: mastodon2memos/commands/mastodon2memos.py:51
+msgid "New toot added to memos."
+msgstr ""
+"Новый пост добавлен в memos."
+
+#: mastodon2memos/commands/mastodon2memos.py:57
+msgid "Finished processing toots."
+msgstr ""
+"Завершена обработка постов."
+
+#: mastodon2memos/commands/troubleshoot.py:6
+msgid "Ensure proper connection to Mastodon, Bluesky, and Memos APIs."
+msgstr ""
+"Убедитесь, что правильно подключены к Mastodon, Bluesky и Memos API."
+
+#: mastodon2memos/commands/troubleshoot.py:11
+#, python-brace-format
+msgid "Reading configuration from: {config_path}"
+msgstr ""
+"Чтение конфигурации из: {config_path}"
+
+#: mastodon2memos/commands/troubleshoot.py:23
+msgid ""
+"Neither Mastodon nor Bluesky connections are enabled in the configuration."
+msgstr ""
+"Ни Mastodon, ни Bluesky не включены в конфигурационном файле."
+
+#: mastodon2memos/commands/troubleshoot.py:29
+msgid "Successfully connected to Mastodon API."
+msgstr ""
+"Успешно подключен к Mastodon API."
+
+#: mastodon2memos/commands/troubleshoot.py:32
+#, python-brace-format
+msgid "Successfully resolved Mastodon username to user ID: {user_id}"
+msgstr ""
+"Успешно разрешен Mastodon пользователя на идентификатор пользователя: {user_id}"
+
+#: mastodon2memos/commands/troubleshoot.py:34
+msgid "Failed to resolve Mastodon username to user ID."
+msgstr ""
+"Не удалось разрешить Mastodon пользователя на идентификатор пользователя."
+
+#: mastodon2memos/commands/troubleshoot.py:37
+#, python-brace-format
+msgid "Failed to connect to Mastodon API: {error}"
+msgstr ""
+"Не удалось подключиться к Mastodon API: {error}"
+
+#: mastodon2memos/commands/troubleshoot.py:44
+msgid "Successfully connected to Bluesky API."
+msgstr ""
+"Успешно подключен к Bluesky API."
+
+#: mastodon2memos/commands/troubleshoot.py:47
+#, python-brace-format
+msgid "Successfully resolved Bluesky username to user ID: {user_id}"
+msgstr ""
+"Успешно разрешен Bluesky пользователя на идентификатор пользователя: {user_id}"
+
+#: mastodon2memos/commands/troubleshoot.py:49
+msgid "Failed to resolve Bluesky username to user ID."
+msgstr ""
+"Не удалось разрешить Bluesky пользователя на идентификатор пользователя."
+
+#: mastodon2memos/commands/troubleshoot.py:52
+#, python-brace-format
+msgid "Failed to connect to Bluesky API: {error}"
+msgstr ""
+"Не удалось подключиться к Bluesky API: {error}"
+
+#: mastodon2memos/commands/troubleshoot.py:58
+msgid "Successfully connected to Memos API."
+msgstr ""
+"Успешно подключен к Memos API."
+
+#: mastodon2memos/commands/troubleshoot.py:60
+#, python-brace-format
+msgid "Failed to connect to Memos API: {error}"
+msgstr ""
+"Не удалось подключиться к Memos API: {error}"
+
+#: mastodon2memos/clients/bluesky_client.py:17
+#, python-brace-format
+msgid "Failed to log in to Bluesky: {e}"
+msgstr ""
+"Не удалось войти в Bluesky: {e}"
+
+#: mastodon2memos/clients/bluesky_client.py:38
+#, python-brace-format
+msgid "Failed to fetch user DID: {e}"
+msgstr ""
+"Не удалось получить DID пользователя: {e}"
+
+#: mastodon2memos/clients/bluesky_client.py:52
+#, python-brace-format
+msgid "Failed to fetch posts: {e}"
+msgstr ""
+"Не удалось получить посты: {e}"
+
+#: mastodon2memos/clients/mastodon_client.py:51
+#, python-brace-format
+msgid "Failed to fetch latest public toots: {error}"
+msgstr ""
+"Не удалось получить последние публичные посты: {error}"
+
+#: mastodon2memos/converters/bluesky2memos_converter.py:28
+msgid "Post already saved in memos."
+msgstr ""
+"Пост уже сохранен в memos."
+
+#: mastodon2memos/converters/bluesky2memos_converter.py:33
+#, python-brace-format
+msgid ""
+"> 🌐 [original bluesky post]({url}) posted by [{acct}]({account_url}) #{tag}"
+msgstr ""
+"> 🌐 [оригинальный пост bluesky]({url}) опубликован пользователем [{acct}]({account_url}) #{tag}"
+
+#: mastodon2memos/converters/mastodon2memos_converter.py:28
+msgid "Toot already saved in memos."
+msgstr ""
+"Пост уже сохранен в memos."
+
+#: mastodon2memos/converters/mastodon2memos_converter.py:33
+#, python-brace-format
+msgid "> 🌐 [original toot]({url}) posted by [{acct}]({account_url}) #{tag}"
+msgstr ""
+"> 🌐 [оригинальный пост]({url}) опубликован пользователем [{acct}]({account_url}) #{tag}"

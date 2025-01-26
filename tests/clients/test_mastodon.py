@@ -4,7 +4,7 @@ import random
 
 from mastodon import MastodonNotFoundError
 
-from tests.test_base import BaseTest 
+from tests.test_base import BaseTest
 
 class TestMastodonClient(BaseTest):
     def setUp(self):
@@ -12,7 +12,7 @@ class TestMastodonClient(BaseTest):
 
     def test_get_latest_public_toots(self):
         client = self._get_mastodon_client()
-        username = self.get_mastodon_username()
+        username = self._get_mastodon_username()
         user_id = client.get_user_id_from_username(username)
 
         # Test with default count
@@ -33,7 +33,7 @@ class TestMastodonClient(BaseTest):
 
     def test_get_user_id_from_username(self):
         client = self._get_mastodon_client()
-        username = self.get_mastodon_username()
+        username = self._get_mastodon_username()
 
         # Test valid username
         user_id = client.get_user_id_from_username(username)

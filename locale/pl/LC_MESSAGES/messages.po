@@ -1,0 +1,287 @@
+# Mastodon to Memos Localization Messages.
+# Copyright (C) 2025 Pierre QUILLERY
+# This file is distributed under the same license as the Mastodon2Memos package.
+# Pierre <pierre@quillery.fr>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Mastodon2Memos 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-26 15:12+0100\n"
+"PO-Revision-Date: 2025-01-26 15:26+0100\n"
+"Last-Translator: Pierre Quillery <pierre@quillery.fr>\n"
+"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+#: mastodon2memos/commands/__init__.py:17
+#, python-brace-format
+msgid ""
+"Configuration file not found at {config_path}. Please ensure the file exists."
+msgstr ""
+"Plik konfiguracyjny nie został znaleziony w {config_path}. Upewnij się, że plik istnieje."
+
+#: mastodon2memos/commands/__init__.py:30
+#, python-brace-format
+msgid "Missing section \"{section}\" in configuration file."
+msgstr ""
+"Brak sekcji \"{section}\" w pliku konfiguracyjnym."
+
+#: mastodon2memos/commands/__init__.py:33
+#, python-brace-format
+msgid "Missing key \"{key}\" in section \"{section}\" of configuration file."
+msgstr ""
+"Brak klucza \"{key}\" w sekcji \"{section}\" pliku konfiguracyjnego."
+
+#: mastodon2memos/commands/__init__.py:52
+msgid "Failed to connect to Mastodon API."
+msgstr ""
+"Nie udało się połączyć z Mastodon API."
+
+#: mastodon2memos/commands/__init__.py:68
+msgid "Failed to connect to Memos API."
+msgstr ""
+"Nie udało się połączyć z Memos API."
+
+#: mastodon2memos/commands/__init__.py:85
+msgid "Failed to connect to Bluesky API."
+msgstr ""
+"Nie udało się połączyć z Bluesky API."
+
+#: mastodon2memos/commands/bluesky2memos.py:7
+msgid "Publish Bluesky posts as Memos."
+msgstr ""
+"Publikuj Bluesky posty jako Memos."
+
+#: mastodon2memos/commands/bluesky2memos.py:8
+msgid "Ask before creating a new memo from a post."
+msgstr ""
+"Pytaj przed tworzeniem nowego memo z postu."
+
+#: mastodon2memos/commands/bluesky2memos.py:9
+#: mastodon2memos/commands/mastodon2memos.py:9
+#: mastodon2memos/commands/troubleshoot.py:7
+msgid "Path to the configuration file."
+msgstr ""
+"Ścieżka do pliku konfiguracyjnego."
+
+#: mastodon2memos/commands/bluesky2memos.py:21
+msgid "Bluesky is not enabled in the configuration file."
+msgstr ""
+"Bluesky nie jest włączony w pliku konfiguracyjnym."
+
+#: mastodon2memos/commands/bluesky2memos.py:37
+#, python-brace-format
+msgid "Processing post: {url}"
+msgstr ""
+"Przetwarzanie postu: {url}"
+
+#: mastodon2memos/commands/bluesky2memos.py:38
+#: mastodon2memos/commands/mastodon2memos.py:37
+#, python-brace-format
+msgid ""
+"Content:\n"
+"{content}"
+msgstr ""
+"Zawartość:\n"
+"{content}"
+
+#: mastodon2memos/commands/bluesky2memos.py:42
+msgid "Post already saved in memos, skipping."
+msgstr ""
+"Post już zapisany w memos, pomijanie."
+
+#: mastodon2memos/commands/bluesky2memos.py:46
+msgid "Do you want to attempt publishing this post as a memo?"
+msgstr ""
+"Czy chcesz próbować opublikować ten post jako memo?"
+
+#: mastodon2memos/commands/bluesky2memos.py:47
+msgid "Skipping post."
+msgstr ""
+"Pominięcie postu."
+
+#: mastodon2memos/commands/bluesky2memos.py:52
+msgid "New post added to memos."
+msgstr ""
+"Nowy post dodany do memos."
+
+#: mastodon2memos/commands/bluesky2memos.py:55
+#: mastodon2memos/commands/mastodon2memos.py:54
+msgid "No memo added, an unexpected error occurred."
+msgstr ""
+"Brak memo, wystąpił nieoczekiwany błąd."
+
+#: mastodon2memos/commands/bluesky2memos.py:59
+msgid "Finished processing posts."
+msgstr ""
+"Zakończono przetwarzanie postów."
+
+#: mastodon2memos/commands/mastodon2memos.py:7
+msgid "Publish Mastodon toots as Memos."
+msgstr ""
+"Publikuj Mastodon tooty jako Memos."
+
+#: mastodon2memos/commands/mastodon2memos.py:8
+msgid "Ask before creating a new memo from a toot."
+msgstr ""
+"Pytaj przed tworzeniem nowego memo z tootu."
+
+#: mastodon2memos/commands/mastodon2memos.py:21
+msgid "Mastodon is not enabled in the configuration file."
+msgstr ""
+"Mastodon nie jest włączony w pliku konfiguracyjnym."
+
+#: mastodon2memos/commands/mastodon2memos.py:36
+#, python-brace-format
+msgid "Processing toot: {url}"
+msgstr ""
+"Przetwarzanie tootu: {url}"
+
+#: mastodon2memos/commands/mastodon2memos.py:41
+msgid "Toot already saved in memos, skipping."
+msgstr ""
+"Toot już zapisany w memos, pomijanie."
+
+#: mastodon2memos/commands/mastodon2memos.py:45
+msgid "Do you want to attempt publishing this toot as a memo?"
+msgstr ""
+"Czy chcesz próbować opublikować ten toot jako memo?"
+
+#: mastodon2memos/commands/mastodon2memos.py:46
+msgid "Skipping toot."
+msgstr ""
+"Pominięcie tootu."
+
+#: mastodon2memos/commands/mastodon2memos.py:51
+msgid "New toot added to memos."
+msgstr ""
+"Nowy toot dodany do memos."
+
+#: mastodon2memos/commands/mastodon2memos.py:57
+msgid "Finished processing toots."
+msgstr ""
+"Zakończono przetwarzanie tootów."
+
+#: mastodon2memos/commands/troubleshoot.py:6
+msgid "Ensure proper connection to Mastodon, Bluesky, and Memos APIs."
+msgstr ""
+"Upewnij się, że jest prawidłowe połączenie z Mastodon, Bluesky i API Memos."
+
+#: mastodon2memos/commands/troubleshoot.py:11
+#, python-brace-format
+msgid "Reading configuration from: {config_path}"
+msgstr ""
+"Odczytywanie konfiguracji z: {config_path}"
+
+#: mastodon2memos/commands/troubleshoot.py:23
+msgid ""
+"Neither Mastodon nor Bluesky connections are enabled in the configuration."
+msgstr ""
+"Nie włączono żadnego połączenia z Mastodon lub Bluesky w pliku konfiguracyjnym."
+
+#: mastodon2memos/commands/troubleshoot.py:29
+msgid "Successfully connected to Mastodon API."
+msgstr ""
+"Pomyślnie połączono z Mastodon API."
+
+#: mastodon2memos/commands/troubleshoot.py:32
+#, python-brace-format
+msgid "Successfully resolved Mastodon username to user ID: {user_id}"
+msgstr ""
+"Pomyślnie rozpoznano Mastodon użytkownika na identyfikatora użytkownika: {user_id}"
+
+#: mastodon2memos/commands/troubleshoot.py:34
+msgid "Failed to resolve Mastodon username to user ID."
+msgstr ""
+"Nie udało się rozpoznać Mastodon użytkownika na identyfikatora użytkownika."
+
+#: mastodon2memos/commands/troubleshoot.py:37
+#, python-brace-format
+msgid "Failed to connect to Mastodon API: {error}"
+msgstr ""
+"Nie udało się połączyć z Mastodon API: {error}"
+
+#: mastodon2memos/commands/troubleshoot.py:44
+msgid "Successfully connected to Bluesky API."
+msgstr ""
+"Pomyślnie połączono z Bluesky API."
+
+#: mastodon2memos/commands/troubleshoot.py:47
+#, python-brace-format
+msgid "Successfully resolved Bluesky username to user ID: {user_id}"
+msgstr ""
+"Pomyślnie rozpoznano Bluesky użytkownika na identyfikatora użytkownika: {user_id}"
+
+#: mastodon2memos/commands/troubleshoot.py:49
+msgid "Failed to resolve Bluesky username to user ID."
+msgstr ""
+"Nie udało się rozpoznać Bluesky użytkownika na identyfikatora użytkownika."
+
+#: mastodon2memos/commands/troubleshoot.py:52
+#, python-brace-format
+msgid "Failed to connect to Bluesky API: {error}"
+msgstr ""
+"Nie udało się połączyć z Bluesky API: {error}"
+
+#: mastodon2memos/commands/troubleshoot.py:58
+msgid "Successfully connected to Memos API."
+msgstr ""
+"Pomyślnie połączono z Memos API."
+
+#: mastodon2memos/commands/troubleshoot.py:60
+#, python-brace-format
+msgid "Failed to connect to Memos API: {error}"
+msgstr ""
+"Nie udało się połączyć z Memos API: {error}"
+
+#: mastodon2memos/clients/bluesky_client.py:17
+#, python-brace-format
+msgid "Failed to log in to Bluesky: {e}"
+msgstr ""
+"Nie udało się zalogować do Bluesky: {e}"
+
+#: mastodon2memos/clients/bluesky_client.py:38
+#, python-brace-format
+msgid "Failed to fetch user DID: {e}"
+msgstr ""
+"Nie udało się pobrać DID użytkownika: {e}"
+
+#: mastodon2memos/clients/bluesky_client.py:52
+#, python-brace-format
+msgid "Failed to fetch posts: {e}"
+msgstr ""
+"Nie udało się pobrać postów: {e}"
+
+#: mastodon2memos/clients/mastodon_client.py:51
+#, python-brace-format
+msgid "Failed to fetch latest public toots: {error}"
+msgstr ""
+"Nie udało się pobrać najnowszych publicznych tootów: {error}"
+
+#: mastodon2memos/converters/bluesky2memos_converter.py:28
+msgid "Post already saved in memos."
+msgstr ""
+"Post już zapisany w memos."
+
+#: mastodon2memos/converters/bluesky2memos_converter.py:33
+#, python-brace-format
+msgid ""
+"> 🌐 [original bluesky post]({url}) posted by [{acct}]({account_url}) #{tag}"
+msgstr ""
+"> 🌐 [oryginalny post bluesky]({url}) opublikowany przez [{acct}]({account_url}) #{tag}"
+
+#: mastodon2memos/converters/mastodon2memos_converter.py:28
+msgid "Toot already saved in memos."
+msgstr ""
+"Toot już zapisany w memos."
+
+#: mastodon2memos/converters/mastodon2memos_converter.py:33
+#, python-brace-format
+msgid "> 🌐 [original toot]({url}) posted by [{acct}]({account_url}) #{tag}"
+msgstr ""
+"> 🌐 [oryginalny toot]({url}) opublikowany przez [{acct}]({account_url}) #{tag}"
