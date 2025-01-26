@@ -4,4 +4,3 @@ PyYAML
 requests
 html2text
 atproto
-magicmock
