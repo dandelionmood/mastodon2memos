@@ -11,7 +11,7 @@ def run_command(command):
 def extract_strings():
     """Extract strings from Python files to a .pot file."""
     pot_file = 'locale/messages.pot'
-    source_files = 'mastodon2memos/*.py mastodon2memos/commands/*.py mastodon2memos/clients/*.py'
+    source_files = 'mastodon2memos/*.py mastodon2memos/commands/*.py mastodon2memos/clients/*.py mastodon2memos/converters/*.py'
     temp_pot_file = 'locale/temp_messages.pot'
     
     # Extract strings to a temporary .pot file
@@ -20,7 +20,7 @@ def extract_strings():
     
     # Merge the temporary .pot file with the existing .pot file
     if os.path.exists(pot_file):
-        command = f'msgmerge --update --backup=none {pot_file} {temp_pot_file}'
+        command = f'msgmerge --update --no-fuzzy-matching --backup=none {pot_file} {temp_pot_file}'
         run_command(command)
         os.remove(temp_pot_file)
     else:

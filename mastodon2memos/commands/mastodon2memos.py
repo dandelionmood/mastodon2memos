@@ -53,6 +53,6 @@ def mastodon2memos(interactive, config_path):
         except RuntimeError as e:
             click.echo(click.style('✘ ' + _('No memo added, an unexpected error occurred.'), fg='red'))
 
-    click.echo(_('---'))
+    click.echo('---')
     click.echo(click.style(_('Finished processing toots.'), fg='green'))
     return True
