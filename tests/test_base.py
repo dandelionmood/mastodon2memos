@@ -46,13 +46,13 @@ class BaseTest(unittest.TestCase):
             password=self.config['bluesky']['password']
         )
 
-    def _get_mastodon_username(self):
+    def _get_mastodon_username(self) -> str:
         """
         Get the Mastodon username from the config.
         """
         return self.config['mastodon']['username']
     
-    def _get_bluesky_username(self):
+    def _get_bluesky_username(self) -> str:
         """
         Get the Bluesky username from the config.
         """
