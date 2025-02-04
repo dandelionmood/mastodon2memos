@@ -8,34 +8,21 @@ class BlueskyClient:
         :param api_base_url: The base URL of the Bluesky instance.
         :param handle: The handle (username) for the Bluesky account.
         :param password: The password for the Bluesky account.
+        :raises atproto.exceptions.AtProtocolError if the login fails.
         """
         self.api_base_url = api_base_url
         self.client = Client()
-        try:
-            self.client.login(handle, password)
-        except Exception as e:
-            raise RuntimeError(_("Failed to log in to Bluesky: {e}").format(e=e))
-
-    def test_connection(self) -> bool:
-        """
-        Test the connection to the Bluesky instance.
-        This can't fail as the client is already initialized in the constructor.
-        :return: True always.
-        """
-        return True
-
+        self.client.login(handle, password)
+    
     def get_user_did_from_handle(self, handle: str) -> str:
         """
         Get the user DID from a given Bluesky handle.
         :param handle: The Bluesky handle.
         :return: The user DID.
-        :raises RuntimeError: if the handle is not found.
+        :raises atproto.exceptions.AtProtocolError if the handle is not found.
         """
-        try: 
-            user = self.client.resolve_handle(handle)
-            return user['did']
-        except Exception as e:
-            raise RuntimeError(_("Failed to fetch user DID: {e}").format(e=e))
+        user = self.client.resolve_handle(handle)
+        return user['did']
 
     def get_latest_posts(self, user_did: str, limit=5) -> dict:
         """
@@ -43,13 +30,10 @@ class BlueskyClient:
         :param user_did: The Bluesky user DID.
         :param limit: The number of posts to fetch (default is 5).
         :return: A list of posts.
-        :raises RuntimeError: if fetching posts fails.
+        :raises atproto.exceptions.AtProtocolError if the user is not found.
         """
-        try:
-            response = self.client.get_author_feed(actor=user_did, limit=limit)
-            return response['feed']
-        except Exception as e:
-            raise RuntimeError(_("Failed to fetch posts: {e}").format(e=e))
+        response = self.client.get_author_feed(actor=user_did, limit=limit)
+        return response['feed']
         
     def get_post_url(self, post: dict) -> str:
         """

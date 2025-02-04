@@ -1,7 +1,6 @@
 import unittest
 import string
 import random
-
 from mastodon import MastodonNotFoundError
 
 from tests.test_base import BaseTest
@@ -28,7 +27,7 @@ class TestMastodonClient(BaseTest):
             self.assertIn('content', toots[0])
 
         # Test exception handling
-        with self.assertRaises(RuntimeError):
+        with self.assertRaises(MastodonNotFoundError):
             client.get_latest_public_toots('invalid_user_id')
 
     def test_get_user_id_from_username(self):
@@ -43,12 +42,6 @@ class TestMastodonClient(BaseTest):
         completely_random_username = ''.join(random.choices(string.ascii_letters + string.digits, k=32))
         with self.assertRaises(MastodonNotFoundError):
             client.get_user_id_from_username(completely_random_username)
-
-    def test_connection(self):
-        client = self._get_mastodon_client()
-        
-        # Test successful connection
-        self.assertTrue(client.test_connection())
 
 if __name__ == '__main__':
     unittest.main()

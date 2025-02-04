@@ -28,6 +28,7 @@ class MemosClient:
         :param content: Content of the memo.
         :param visibility: Visibility of the memo. Default is 'PUBLIC'.
         :return: dict: JSON response from the server.
+        :raises HTTPError: if the request to create the memo fails.
         """
         url = f'{self.api_base_url}/api/v1/memos'
         payload = {
@@ -45,6 +46,7 @@ class MemosClient:
 
         :param memo_id: The ID of the memo to update.
         :param created_at: The created_at date from the post.
+        :raises HTTPError: if the request to update the memo fails.
         """
         url = f'{self.api_base_url}/api/v1/{memo_name}'
         created_at_rfc3339 = created_at.isoformat()
@@ -65,6 +67,7 @@ class MemosClient:
         :param resource_url: The URL of the resource.
         :param created_at: The created_at date from the post.
         :return: dict: JSON response from the server.
+        :raises HTTPError: if the request to upload the resource fails.
         """
         # Download the file from resource_url to a temporary location
         response = requests.get(resource_url)
@@ -97,19 +100,10 @@ class MemosClient:
         response.raise_for_status()
         return response.json()
 
-    def test_connection(self) -> bool:
-        """
-        Test the connection to the Memos API by getting the authentication status.
-        :return: bool: True if the connection is successful, False otherwise.
-        """
-        url = f'{self.api_base_url}/api/v1/auth/status'
-        response = requests.post(url, headers=self._headers())
-        response.raise_for_status()
-        return response.json()['id'] is not None
-
     def get_memo_url(self, memo_uid: str) -> str:
         """
         Get the URL of a memo.
+
         :param memo_uid: The UID of the memo.
         :return: str: The URL of the memo.
         """
@@ -119,8 +113,10 @@ class MemosClient:
     def find_by_toot_url(self, toot_url: str) -> dict:
         """
         Check if a Mastodon toot is already a Memo.
+
         :param toot_url: The URL of the toot.
         :return: dict: The memo object if the toot is already a Memo, None otherwise.
+        :raises HTTPError: if the request to find the memo fails.
         """
         url = f'{self.api_base_url}/api/v1/memos'
         params = {
@@ -139,6 +135,7 @@ class MemosClient:
     def _headers(self) -> dict:
         """
         Returns the headers for the API requests.
+        :return: dict: The headers.
         """
         return {
             'Authorization': f'Bearer {self.access_token}',
