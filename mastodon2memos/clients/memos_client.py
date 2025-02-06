@@ -100,15 +100,18 @@ class MemosClient:
         response.raise_for_status()
         return response.json()
 
-    def get_memo_url(self, memo_uid: str) -> str:
+    def get_memo_url(self, memo_name: str) -> str:
         """
         Get the URL of a memo.
 
         :param memo_uid: The UID of the memo.
         :return: str: The URL of the memo.
         """
+        # extract ID from the name (e.g. memos/oDg8LyYMkBXJ4ekJc3ejo5)
+        memo_id = memo_name.split('/')[-1]
+
         # Get the memo URL using the uid field value and the base URL
-        return f'{self.api_base_url}/m/{memo_uid}'
+        return f'{self.api_base_url}/m/{memo_id}'
 
     def find_by_toot_url(self, toot_url: str) -> dict:
         """
@@ -120,7 +123,9 @@ class MemosClient:
         """
         url = f'{self.api_base_url}/api/v1/memos'
         params = {
-            'filter': f'tag_search == ["{MASTODON2MEMOS_TAG}"] && content_search == ["]({toot_url})"]',
+            # CEL formated seach query
+            # See here for more info: https://github.com/usememos/dotcom/blob/main/content/docs/getting-started/shortcuts.md
+            'filter': f'tag in ["{MASTODON2MEMOS_TAG}"] && content.contains(\"{toot_url}\")',
             'pageSize': 1
         }
         response = requests.get(url, headers=self._headers(), params=params)
@@ -139,5 +144,5 @@ class MemosClient:
         """
         return {
             'Authorization': f'Bearer {self.access_token}',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         }

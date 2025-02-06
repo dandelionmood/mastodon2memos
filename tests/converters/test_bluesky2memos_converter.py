@@ -1,4 +1,5 @@
 from datetime import datetime
+from types import SimpleNamespace
 import unittest
 from faker import Faker
 
@@ -39,32 +40,22 @@ class TestBluesky2Memos_Convert(BaseTest):
         :return: A fake Bluesky post.
         """
         fake = Faker()
-        return {
-            'uri': uri if uri else self._get_fake_bluesky_post_uri(),
-            'cid': fake.uuid4(),
-            'author': {
-                'did': fake.uuid4(),
-                'handle': fake.user_name() + ".bsky.social",
-                'displayName': fake.name(),
-                'avatar': fake.image_url(),
-                'createdAt': datetime.now().astimezone()
-            },
-            'record': {
-                'text': "<br />".join(fake.sentences(nb=3))
-            },
-            'indexedAt': datetime.now().astimezone(),
-            'embed': {
-                'images': [
-                    {
-                        'value': "https://picsum.photos/640/480.jpg"
-                    },
-                    {
-                        'value': "https://picsum.photos/480/640.jpg"
-                    }                    
-                ],
-                # note: no video for now, unsure how this is implemented
-            }
-        }
+        return SimpleNamespace(
+            uri=uri if uri else fake.uuid4(),
+            cid=fake.uuid4(),
+            author=SimpleNamespace(
+                did=fake.uuid4(),
+                handle=fake.user_name() + ".bsky.social",
+                display_name=fake.name(),
+                avatar=fake.image_url(),
+                created_at=datetime.now().astimezone().strftime("%Y-%m-%dT%H:%M:%S.000Z")
+            ),
+            record=SimpleNamespace(
+                text="<br />".join(fake.sentences(nb=3)),
+                created_at=datetime.now().astimezone().strftime("%Y-%m-%dT%H:%M:%S.000Z")
+            )
+            # no embed
+        )
 
     def _get_fake_bluesky_post_uri(self):
         """

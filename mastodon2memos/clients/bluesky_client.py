@@ -22,7 +22,7 @@ class BlueskyClient:
         :raises atproto.exceptions.AtProtocolError if the handle is not found.
         """
         user = self.client.resolve_handle(handle)
-        return user['did']
+        return user.did
 
     def get_latest_posts(self, user_did: str, limit=5) -> dict:
         """
@@ -33,7 +33,7 @@ class BlueskyClient:
         :raises atproto.exceptions.AtProtocolError if the user is not found.
         """
         response = self.client.get_author_feed(actor=user_did, limit=limit)
-        return response['feed']
+        return response.feed
         
     def get_post_url(self, post: dict) -> str:
         """
@@ -41,8 +41,8 @@ class BlueskyClient:
         :param post: The Bluesky post.
         :return: The URL of the post.
         """
-        author_handle = post['author']['handle']
-        post_id = post['uri'].split('/')[-1]
+        author_handle = post.author.handle
+        post_id = post.uri.split('/')[-1]
         return self.api_base_url + "/profile/{author_handle}/post/{post_id}".format(
             author_handle=author_handle, 
             post_id=post_id)

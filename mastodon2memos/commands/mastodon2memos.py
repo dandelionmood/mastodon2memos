@@ -49,7 +49,7 @@ def mastodon2memos(interactive, config_path):
         try:
             memo = mastodon2memos_converter.publish_toot_as_memo(toot)
             click.echo(click.style('✔ ' + _('New toot added to memos.'), fg='green'))
-            click.echo(memos_client.get_memo_url(memo["uid"]))
+            click.echo(memos_client.get_memo_url(memo["name"]))
         except RuntimeError as e:
             click.echo(click.style('✘ ' + _('No memo added, an unexpected error occurred.'), fg='red'))
 

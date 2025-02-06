@@ -4,6 +4,10 @@ A Python script that reads your "public" Mastodon AND/OR Bluesky toots & capture
 
 Memos is a privacy-first, lightweight note-taking solution that allows you to effortlessly capture and share your ideas. See [Memos](https://www.usememos.com/) for more.
 
+**Important note:** Mastodon2Memos relies on the Memos API, which is currently in beta. 
+Thus, as the API may change, this script may stop working at any time.
+The latest version of Memos that this script has been tested against is [v0.24.0](https://github.com/usememos/memos/releases/tag/v0.24.0).
+
 ## Installation
 
 1. Clone the repository:
