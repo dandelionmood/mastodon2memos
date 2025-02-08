@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v2025.02.08-1] - 2025-02-08
+### Changed
+- Updated the `troubleshoot` command to provide more detailed information about configuration issues.
+- Added support for Memos v0.24.0 API changes.
+
+### Fixed
+- Fix issue with Bluesky posts not being properly imported.
+- Fixed issue #1 from the GitHub repository! Thanks @vnl for the feedback!
+
 ## [v2025.01.26-1] - 2025-01-26
 ### Added
 - ⭐️ Support for Bluesky through the bluesky2memos command.
