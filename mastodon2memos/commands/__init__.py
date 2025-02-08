@@ -39,51 +39,36 @@ def initialize_mastodon_client(config):
     Initialize Mastodon client.
     :param config: Configuration dictionary.
     :return: Initialized Mastodon client
-    :raises Exception if the connection fails
     """
-    mastodon_client = MastodonClient(
+    return MastodonClient(
         api_base_url=config['mastodon']['api_url'],
         client_id=config['mastodon']['client_id'],
         client_secret=config['mastodon']['client_secret'],
         access_token=config['mastodon']['access_token']
     )
-    # Test Mastodon connection
-    if not mastodon_client.test_connection():
-        raise Exception(_('Failed to connect to Mastodon API.'))
-    return mastodon_client
 
 def initialize_memos_client(config):
     """
     Initialize Memos client.
     :param config: Configuration dictionary.
     :return: Initialized Memos client.
-    :raises Exception if the connection fails
     """
-    memos_client = MemosClient(
+    return MemosClient(
         api_base_url=config['memos']['api_url'],
         access_token=config['memos']['access_token']
     )
-    # Test Memos connection
-    if not memos_client.test_connection():
-        raise Exception(_('Failed to connect to Memos API.'))
-    return memos_client
 
 def initialize_bluesky_client(config):
     """
     Initialize Bluesky client.
     :param config: Configuration dictionary.
     :return: Initialized Bluesky client
-    :raises Exception if the connection fails
     """
-    bluesky_client = BlueskyClient(
+    return BlueskyClient(
         api_base_url=config['bluesky']['api_url'],
         handle=config['bluesky']['handle'],
         password=config['bluesky']['password']
     )
-    # Test Bluesky connection
-    if not bluesky_client.test_connection():
-        raise Exception(_('Failed to connect to Bluesky API.'))
-    return bluesky_client
 
 def is_mastodon_enabled(config: dict):
     """

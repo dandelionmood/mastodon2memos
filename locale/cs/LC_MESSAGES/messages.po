@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastodon2Memos 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-26 15:12+0100\n"
+"POT-Creation-Date: 2025-02-04 20:36+0100\n"
 "PO-Revision-Date: 2025-01-26 15:49+0100\n"
 "Last-Translator: Pierre Quillery <pierre@quillery.fr>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
@@ -19,8 +19,11 @@ msgstr ""
 
 #: mastodon2memos/commands/__init__.py:17
 #, python-brace-format
-msgid "Configuration file not found at {config_path}. Please ensure the file exists."
-msgstr "Konfigurační soubor nebyl nalezen v {config_path}. Ověřte prosím, že soubor existuje."
+msgid ""
+"Configuration file not found at {config_path}. Please ensure the file exists."
+msgstr ""
+"Konfigurační soubor nebyl nalezen v {config_path}. Ověřte prosím, že soubor "
+"existuje."
 
 #: mastodon2memos/commands/__init__.py:30
 #, python-brace-format
@@ -32,18 +35,6 @@ msgstr "Chybí sekce \"{section}\" v konfiguračním souboru."
 msgid "Missing key \"{key}\" in section \"{section}\" of configuration file."
 msgstr "Chybí klíč \"{key}\" v sekci \"{section}\" konfiguračního souboru."
 
-#: mastodon2memos/commands/__init__.py:52
-msgid "Failed to connect to Mastodon API."
-msgstr "Nepodařilo se připojit k Mastodon API."
-
-#: mastodon2memos/commands/__init__.py:68
-msgid "Failed to connect to Memos API."
-msgstr "Nepodařilo se připojit k Memos API."
-
-#: mastodon2memos/commands/__init__.py:85
-msgid "Failed to connect to Bluesky API."
-msgstr "Nepodařilo se připojit k Bluesky API."
-
 #: mastodon2memos/commands/bluesky2memos.py:7
 msgid "Publish Bluesky posts as Memos."
 msgstr "Publikovat Bluesky příspěvky jako Memos."
@@ -54,7 +45,7 @@ msgstr "Před vytvořením nového memo z příspěvku se zeptat."
 
 #: mastodon2memos/commands/bluesky2memos.py:9
 #: mastodon2memos/commands/mastodon2memos.py:9
-#: mastodon2memos/commands/troubleshoot.py:7
+#: mastodon2memos/commands/troubleshoot.py:8
 msgid "Path to the configuration file."
 msgstr "Cesta k konfiguračnímu souboru."
 
@@ -70,10 +61,11 @@ msgstr "Zpracovávám příspěvek: {url}"
 #: mastodon2memos/commands/bluesky2memos.py:38
 #: mastodon2memos/commands/mastodon2memos.py:37
 #, python-brace-format
-msgid 
+msgid ""
 "Content:\n"
 "{content}"
-msgstr "Obsah:\n"
+msgstr ""
+"Obsah:\n"
 "{content}"
 
 #: mastodon2memos/commands/bluesky2memos.py:42
@@ -138,84 +130,70 @@ msgstr "Nový příspěvek přidán do memos."
 msgid "Finished processing toots."
 msgstr "Dokončen přepočet příspěvků."
 
-#: mastodon2memos/commands/troubleshoot.py:6
+#: mastodon2memos/commands/troubleshoot.py:7
 msgid "Ensure proper connection to Mastodon, Bluesky, and Memos APIs."
-msgstr "Ujistěte se, že jsou správně připojeny k Mastodon, Bluesky a Memos API."
+msgstr ""
+"Ujistěte se, že jsou správně připojeny k Mastodon, Bluesky a Memos API."
 
-#: mastodon2memos/commands/troubleshoot.py:11
+#: mastodon2memos/commands/troubleshoot.py:9
+msgid "Display full stack trace on error."
+msgstr ""
+"Zobrazit úplný záznam o chybě v úplné vrstvě zásobníku."
+
+#: mastodon2memos/commands/troubleshoot.py:13
 #, python-brace-format
 msgid "Reading configuration from: {config_path}"
 msgstr "Čtení konfigurace z: {config_path}"
 
-#: mastodon2memos/commands/troubleshoot.py:23
-msgid 
+#: mastodon2memos/commands/troubleshoot.py:25
+msgid ""
 "Neither Mastodon nor Bluesky connections are enabled in the configuration."
 msgstr "Nejsou povoleny žádné připojení k Mastodon nebo Bluesky v konfiguraci."
 
-#: mastodon2memos/commands/troubleshoot.py:29
+#: mastodon2memos/commands/troubleshoot.py:37
 msgid "Successfully connected to Mastodon API."
 msgstr "Úspěšně připojen k Mastodon API."
 
-#: mastodon2memos/commands/troubleshoot.py:32
+#: mastodon2memos/commands/troubleshoot.py:39
 #, python-brace-format
 msgid "Successfully resolved Mastodon username to user ID: {user_id}"
 msgstr "Úspěšně přeložen Mastodon uživatelské jméno na ID uživatele: {user_id}"
 
-#: mastodon2memos/commands/troubleshoot.py:34
+#: mastodon2memos/commands/troubleshoot.py:41
 msgid "Failed to resolve Mastodon username to user ID."
 msgstr "Nepodařilo se přeložit Mastodon uživatelské jméno na ID uživatele."
 
-#: mastodon2memos/commands/troubleshoot.py:37
+#: mastodon2memos/commands/troubleshoot.py:44
 #, python-brace-format
 msgid "Failed to connect to Mastodon API: {error}"
 msgstr "Nepodařilo se připojit k Mastodon API: {error}"
 
-#: mastodon2memos/commands/troubleshoot.py:44
+#: mastodon2memos/commands/troubleshoot.py:59
 msgid "Successfully connected to Bluesky API."
 msgstr "Úspěšně připojen k Bluesky API."
 
-#: mastodon2memos/commands/troubleshoot.py:47
+#: mastodon2memos/commands/troubleshoot.py:61
 #, python-brace-format
 msgid "Successfully resolved Bluesky username to user ID: {user_id}"
 msgstr "Úspěšně přeložen Bluesky uživatelské jméno na ID uživatele: {user_id}"
 
-#: mastodon2memos/commands/troubleshoot.py:49
+#: mastodon2memos/commands/troubleshoot.py:63
 msgid "Failed to resolve Bluesky username to user ID."
 msgstr "Nepodařilo se přeložit Bluesky uživatelské jméno na ID uživatele."
 
-#: mastodon2memos/commands/troubleshoot.py:52
+#: mastodon2memos/commands/troubleshoot.py:66
 #, python-brace-format
 msgid "Failed to connect to Bluesky API: {error}"
 msgstr "Nepodařilo se připojit k Bluesky API: {error}"
 
-#: mastodon2memos/commands/troubleshoot.py:58
+#: mastodon2memos/commands/troubleshoot.py:79
 msgid "Successfully connected to Memos API."
 msgstr "Úspěšně připojen k Memos API."
 
-#: mastodon2memos/commands/troubleshoot.py:60
+#: mastodon2memos/commands/troubleshoot.py:81
 #, python-brace-format
 msgid "Failed to connect to Memos API: {error}"
 msgstr "Nepodařilo se připojit k Memos API: {error}"
-
-#: mastodon2memos/clients/bluesky_client.py:17
-#, python-brace-format
-msgid "Failed to log in to Bluesky: {e}"
-msgstr "Nepodařilo se přihlásit k Bluesky: {e}"
-
-#: mastodon2memos/clients/bluesky_client.py:38
-#, python-brace-format
-msgid "Failed to fetch user DID: {e}"
-msgstr "Nepodařilo se získat DID uživatele: {e}"
-
-#: mastodon2memos/clients/bluesky_client.py:52
-#, python-brace-format
-msgid "Failed to fetch posts: {e}"
-msgstr "Nepodařilo se získat příspěvky: {e}"
-
-#: mastodon2memos/clients/mastodon_client.py:51
-#, python-brace-format
-msgid "Failed to fetch latest public toots: {error}"
-msgstr "Nepodařilo se získat nejnovější veřejné příspěvky: {error}"
 
 #: mastodon2memos/converters/bluesky2memos_converter.py:28
 msgid "Post already saved in memos."
@@ -223,10 +201,11 @@ msgstr "Příspěvek již uložen v memos."
 
 #: mastodon2memos/converters/bluesky2memos_converter.py:33
 #, python-brace-format
-msgid 
+msgid ""
 "> 🌐 [original bluesky post]({url}) posted by [{acct}]({account_url}) #{tag}"
-msgstr 
-"> 🌐 [původní příspěvek bluesky]({url}) přidán uživatelem [{acct}]({account_url}) #{tag}"
+msgstr ""
+"> 🌐 [původní příspěvek bluesky]({url}) přidán uživatelem [{acct}]"
+"({account_url}) #{tag}"
 
 #: mastodon2memos/converters/mastodon2memos_converter.py:28
 msgid "Toot already saved in memos."
@@ -235,4 +214,6 @@ msgstr "Příspěvek již uložen v memos."
 #: mastodon2memos/converters/mastodon2memos_converter.py:33
 #, python-brace-format
 msgid "> 🌐 [original toot]({url}) posted by [{acct}]({account_url}) #{tag}"
-msgstr "> 🌐 [původní příspěvek]({url}) přidán uživatelem [{acct}]({account_url}) #{tag}"
+msgstr ""
+"> 🌐 [původní příspěvek]({url}) přidán uživatelem [{acct}]({account_url}) "
+"#{tag}"

@@ -2,6 +2,7 @@ import unittest
 import string
 import random
 
+from atproto.exceptions import AtProtocolError
 from tests.test_base import BaseTest
 
 class TestBlueskyClient(BaseTest):
@@ -22,7 +23,7 @@ class TestBlueskyClient(BaseTest):
             self.assertIsInstance(posts[0].post.record.text, str)
 
         # Test exception handling
-        with self.assertRaises(RuntimeError):
+        with self.assertRaises(AtProtocolError):
             client.get_latest_posts('invalid_user_id')
 
     def test_get_user_did_from_handle(self):
@@ -35,14 +36,8 @@ class TestBlueskyClient(BaseTest):
 
         # Test invalid handle
         completely_random_handle = ''.join(random.choices(string.ascii_letters + string.digits, k=32))
-        with self.assertRaises(RuntimeError):
+        with self.assertRaises(AtProtocolError):
             client.get_user_did_from_handle(completely_random_handle)
-
-    def test_connection(self):
-        client = self._get_bluesky_client()
-        
-        # Test successful connection
-        self.assertTrue(client.test_connection())
 
 if __name__ == '__main__':
     unittest.main()

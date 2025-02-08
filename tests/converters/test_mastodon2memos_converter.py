@@ -33,6 +33,7 @@ class TestMastodon2Memos_Converter(BaseTest):
         with self.assertRaises(RuntimeError):
             self.converter.publish_toot_as_memo(toot)
 
+    # TODO: Replace this with a function that gets an actual Mastodon toot instead
     def _create_fake_toot(self, url=None):
         """
         Helper method to create a fake toot.

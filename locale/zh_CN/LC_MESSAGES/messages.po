@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastodon2Memos 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-26 15:12+0100\n"
+"POT-Creation-Date: 2025-02-04 20:36+0100\n"
 "PO-Revision-Date: 2025-01-26 15:26+0100\n"
 "Last-Translator: Pierre Quillery <pierre@quillery.fr>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -20,63 +20,40 @@ msgstr ""
 #, python-brace-format
 msgid ""
 "Configuration file not found at {config_path}. Please ensure the file exists."
-msgstr ""
-"未找到配置文件 {config_path}。请确保文件存在。"
+msgstr "未找到配置文件 {config_path}。请确保文件存在。"
 
 #: mastodon2memos/commands/__init__.py:30
 #, python-brace-format
 msgid "Missing section \"{section}\" in configuration file."
-msgstr ""
-"配置文件中缺少章节 \"{section}\"。"
+msgstr "配置文件中缺少章节 \"{section}\"。"
 
 #: mastodon2memos/commands/__init__.py:33
 #, python-brace-format
 msgid "Missing key \"{key}\" in section \"{section}\" of configuration file."
-msgstr ""
-"配置文件中缺少键 \"{key}\"。"
-
-#: mastodon2memos/commands/__init__.py:52
-msgid "Failed to connect to Mastodon API."
-msgstr ""
-"连接到 Mastodon API 失败。"
-
-#: mastodon2memos/commands/__init__.py:68
-msgid "Failed to connect to Memos API."
-msgstr ""
-"连接到 Memos API 失败。"
-
-#: mastodon2memos/commands/__init__.py:85
-msgid "Failed to connect to Bluesky API."
-msgstr ""
-"连接到 Bluesky API 失败。"
+msgstr "配置文件中缺少键 \"{key}\"。"
 
 #: mastodon2memos/commands/bluesky2memos.py:7
 msgid "Publish Bluesky posts as Memos."
-msgstr ""
-"将 Bluesky 发布为 Memos。"
+msgstr "将 Bluesky 发布为 Memos。"
 
 #: mastodon2memos/commands/bluesky2memos.py:8
 msgid "Ask before creating a new memo from a post."
-msgstr ""
-"在发布新 Memo 时询问。"
+msgstr "在发布新 Memo 时询问。"
 
 #: mastodon2memos/commands/bluesky2memos.py:9
 #: mastodon2memos/commands/mastodon2memos.py:9
-#: mastodon2memos/commands/troubleshoot.py:7
+#: mastodon2memos/commands/troubleshoot.py:8
 msgid "Path to the configuration file."
-msgstr ""
-"配置文件的路径。"
+msgstr "配置文件的路径。"
 
 #: mastodon2memos/commands/bluesky2memos.py:21
 msgid "Bluesky is not enabled in the configuration file."
-msgstr ""
-"Bluesky 未在配置文件中启用。"
+msgstr "Bluesky 未在配置文件中启用。"
 
 #: mastodon2memos/commands/bluesky2memos.py:37
 #, python-brace-format
 msgid "Processing post: {url}"
-msgstr ""
-"处理帖子: {url}"
+msgstr "处理帖子: {url}"
 
 #: mastodon2memos/commands/bluesky2memos.py:38
 #: mastodon2memos/commands/mastodon2memos.py:37
@@ -90,196 +67,170 @@ msgstr ""
 
 #: mastodon2memos/commands/bluesky2memos.py:42
 msgid "Post already saved in memos, skipping."
-msgstr ""
-"帖子已保存在 Memos，跳过。"
+msgstr "帖子已保存在 Memos，跳过。"
 
 #: mastodon2memos/commands/bluesky2memos.py:46
 msgid "Do you want to attempt publishing this post as a memo?"
-msgstr ""
-"您想要尝试将此帖子发布为 Memo 吗？"
+msgstr "您想要尝试将此帖子发布为 Memo 吗？"
 
 #: mastodon2memos/commands/bluesky2memos.py:47
 msgid "Skipping post."
-msgstr ""
-"跳过帖子。"
+msgstr "跳过帖子。"
 
 #: mastodon2memos/commands/bluesky2memos.py:52
 msgid "New post added to memos."
-msgstr ""
-"新帖子已添加到 Memos。"
+msgstr "新帖子已添加到 Memos。"
 
 #: mastodon2memos/commands/bluesky2memos.py:55
 #: mastodon2memos/commands/mastodon2memos.py:54
 msgid "No memo added, an unexpected error occurred."
-msgstr ""
-"未添加 Memo，发生意外错误。"
+msgstr "未添加 Memo，发生意外错误。"
 
 #: mastodon2memos/commands/bluesky2memos.py:59
 msgid "Finished processing posts."
-msgstr ""
-"处理帖子完成。"
+msgstr "处理帖子完成。"
 
 #: mastodon2memos/commands/mastodon2memos.py:7
 msgid "Publish Mastodon toots as Memos."
-msgstr ""
-"将 Mastodon 发布为 Memos。"
+msgstr "将 Mastodon 发布为 Memos。"
 
 #: mastodon2memos/commands/mastodon2memos.py:8
 msgid "Ask before creating a new memo from a toot."
-msgstr ""
-"在发布新 Memo 时询问。"
+msgstr "在发布新 Memo 时询问。"
 
 #: mastodon2memos/commands/mastodon2memos.py:21
 msgid "Mastodon is not enabled in the configuration file."
-msgstr ""
-"Mastodon 未在配置文件中启用。"
+msgstr "Mastodon 未在配置文件中启用。"
 
 #: mastodon2memos/commands/mastodon2memos.py:36
 #, python-brace-format
 msgid "Processing toot: {url}"
-msgstr ""
-"处理帖子: {url}"
+msgstr "处理帖子: {url}"
 
 #: mastodon2memos/commands/mastodon2memos.py:41
 msgid "Toot already saved in memos, skipping."
-msgstr ""
-"帖子已保存在 Memos，跳过。"
+msgstr "帖子已保存在 Memos，跳过。"
 
 #: mastodon2memos/commands/mastodon2memos.py:45
 msgid "Do you want to attempt publishing this toot as a memo?"
-msgstr ""
-"您想要尝试将此帖子发布为 Memo 吗？"
+msgstr "您想要尝试将此帖子发布为 Memo 吗？"
 
 #: mastodon2memos/commands/mastodon2memos.py:46
 msgid "Skipping toot."
-msgstr ""
-"跳过帖子。"
+msgstr "跳过帖子。"
 
 #: mastodon2memos/commands/mastodon2memos.py:51
 msgid "New toot added to memos."
-msgstr ""
-"新帖子已添加到 Memos。"
+msgstr "新帖子已添加到 Memos。"
 
 #: mastodon2memos/commands/mastodon2memos.py:57
 msgid "Finished processing toots."
-msgstr ""
-"处理帖子完成。"
+msgstr "处理帖子完成。"
 
-#: mastodon2memos/commands/troubleshoot.py:6
+#: mastodon2memos/commands/troubleshoot.py:7
 msgid "Ensure proper connection to Mastodon, Bluesky, and Memos APIs."
-msgstr ""
-"确保正确的连接到 Mastodon、Bluesky 和 Memos API。"
+msgstr "确保正确的连接到 Mastodon、Bluesky 和 Memos API。"
 
-#: mastodon2memos/commands/troubleshoot.py:11
+#: mastodon2memos/commands/troubleshoot.py:9
+msgid "Display full stack trace on error."
+msgstr ""
+"在发生错误时显示完整的堆栈跟踪。"
+
+#: mastodon2memos/commands/troubleshoot.py:13
 #, python-brace-format
 msgid "Reading configuration from: {config_path}"
-msgstr ""
-"从 {config_path} 读取配置。"
+msgstr "从 {config_path} 读取配置。"
 
-#: mastodon2memos/commands/troubleshoot.py:23
+#: mastodon2memos/commands/troubleshoot.py:25
 msgid ""
 "Neither Mastodon nor Bluesky connections are enabled in the configuration."
-msgstr ""
-"配置文件中未启用 Mastodon 或 Bluesky 连接。"
-
-#: mastodon2memos/commands/troubleshoot.py:29
-msgid "Successfully connected to Mastodon API."
-msgstr ""
-"成功连接到 Mastodon API。"
-
-#: mastodon2memos/commands/troubleshoot.py:32
-#, python-brace-format
-msgid "Successfully resolved Mastodon username to user ID: {user_id}"
-msgstr ""
-"成功将 Mastodon 用户名解析为用户 ID: {user_id}"
-
-#: mastodon2memos/commands/troubleshoot.py:34
-msgid "Failed to resolve Mastodon username to user ID."
-msgstr ""
-"无法将 Mastodon 用户名解析为用户 ID。"
+msgstr "配置文件中未启用 Mastodon 或 Bluesky 连接。"
 
 #: mastodon2memos/commands/troubleshoot.py:37
+msgid "Successfully connected to Mastodon API."
+msgstr "成功连接到 Mastodon API。"
+
+#: mastodon2memos/commands/troubleshoot.py:39
 #, python-brace-format
-msgid "Failed to connect to Mastodon API: {error}"
-msgstr ""
-"连接到 Mastodon API 失败: {error}"
+msgid "Successfully resolved Mastodon username to user ID: {user_id}"
+msgstr "成功将 Mastodon 用户名解析为用户 ID: {user_id}"
+
+#: mastodon2memos/commands/troubleshoot.py:41
+msgid "Failed to resolve Mastodon username to user ID."
+msgstr "无法将 Mastodon 用户名解析为用户 ID。"
 
 #: mastodon2memos/commands/troubleshoot.py:44
-msgid "Successfully connected to Bluesky API."
-msgstr ""
-"成功连接到 Bluesky API。"
+#, python-brace-format
+msgid "Failed to connect to Mastodon API: {error}"
+msgstr "连接到 Mastodon API 失败: {error}"
 
-#: mastodon2memos/commands/troubleshoot.py:47
+#: mastodon2memos/commands/troubleshoot.py:59
+msgid "Successfully connected to Bluesky API."
+msgstr "成功连接到 Bluesky API。"
+
+#: mastodon2memos/commands/troubleshoot.py:61
 #, python-brace-format
 msgid "Successfully resolved Bluesky username to user ID: {user_id}"
-msgstr ""
-"成功将 Bluesky 用户名解析为用户 ID: {user_id}"
+msgstr "成功将 Bluesky 用户名解析为用户 ID: {user_id}"
 
-#: mastodon2memos/commands/troubleshoot.py:49
+#: mastodon2memos/commands/troubleshoot.py:63
 msgid "Failed to resolve Bluesky username to user ID."
-msgstr ""
-"无法将 Bluesky 用户名解析为用户 ID。"
+msgstr "无法将 Bluesky 用户名解析为用户 ID。"
 
-#: mastodon2memos/commands/troubleshoot.py:52
+#: mastodon2memos/commands/troubleshoot.py:66
 #, python-brace-format
 msgid "Failed to connect to Bluesky API: {error}"
-msgstr ""
-"连接到 Bluesky API 失败: {error}"
+msgstr "连接到 Bluesky API 失败: {error}"
 
-#: mastodon2memos/commands/troubleshoot.py:58
+#: mastodon2memos/commands/troubleshoot.py:79
 msgid "Successfully connected to Memos API."
-msgstr ""
-"成功连接到 Memos API。"
+msgstr "成功连接到 Memos API。"
 
-#: mastodon2memos/commands/troubleshoot.py:60
+#: mastodon2memos/commands/troubleshoot.py:81
 #, python-brace-format
 msgid "Failed to connect to Memos API: {error}"
-msgstr ""
-"连接到 Memos API 失败: {error}"
-
-#: mastodon2memos/clients/bluesky_client.py:17
-#, python-brace-format
-msgid "Failed to log in to Bluesky: {e}"
-msgstr ""
-"登录 Bluesky 失败: {e}"
-
-#: mastodon2memos/clients/bluesky_client.py:38
-#, python-brace-format
-msgid "Failed to fetch user DID: {e}"
-msgstr ""
-"获取用户 DID 失败: {e}"
-
-#: mastodon2memos/clients/bluesky_client.py:52
-#, python-brace-format
-msgid "Failed to fetch posts: {e}"
-msgstr ""
-"获取帖子失败: {e}"
-
-#: mastodon2memos/clients/mastodon_client.py:51
-#, python-brace-format
-msgid "Failed to fetch latest public toots: {error}"
-msgstr ""
-"获取最新公开帖子失败: {error}"
+msgstr "连接到 Memos API 失败: {error}"
 
 #: mastodon2memos/converters/bluesky2memos_converter.py:28
 msgid "Post already saved in memos."
-msgstr ""
-"帖子已保存在 Memos。"
+msgstr "帖子已保存在 Memos。"
 
 #: mastodon2memos/converters/bluesky2memos_converter.py:33
 #, python-brace-format
 msgid ""
 "> 🌐 [original bluesky post]({url}) posted by [{acct}]({account_url}) #{tag}"
-msgstr ""
-"> 🌐 [原始 bluesky 帖子]({url}) 由 [{acct}]({account_url}) #{tag} 发布"
+msgstr "> 🌐 [原始 bluesky 帖子]({url}) 由 [{acct}]({account_url}) #{tag} 发布"
 
 #: mastodon2memos/converters/mastodon2memos_converter.py:28
 msgid "Toot already saved in memos."
-msgstr ""
-"帖子已保存在 Memos。"
+msgstr "帖子已保存在 Memos。"
 
 #: mastodon2memos/converters/mastodon2memos_converter.py:33
 #, python-brace-format
 msgid "> 🌐 [original toot]({url}) posted by [{acct}]({account_url}) #{tag}"
-msgstr ""
-"> 🌐 [原始 toot]({url}) 由 [{acct}]({account_url}) #{tag} 发布"
+msgstr "> 🌐 [原始 toot]({url}) 由 [{acct}]({account_url}) #{tag} 发布"
+
+#~ msgid "Failed to connect to Mastodon API."
+#~ msgstr "连接到 Mastodon API 失败。"
+
+#~ msgid "Failed to connect to Memos API."
+#~ msgstr "连接到 Memos API 失败。"
+
+#~ msgid "Failed to connect to Bluesky API."
+#~ msgstr "连接到 Bluesky API 失败。"
+
+#, python-brace-format
+#~ msgid "Failed to log in to Bluesky: {e}"
+#~ msgstr "登录 Bluesky 失败: {e}"
+
+#, python-brace-format
+#~ msgid "Failed to fetch user DID: {e}"
+#~ msgstr "获取用户 DID 失败: {e}"
+
+#, python-brace-format
+#~ msgid "Failed to fetch posts: {e}"
+#~ msgstr "获取帖子失败: {e}"
+
+#, python-brace-format
+#~ msgid "Failed to fetch latest public toots: {error}"
+#~ msgstr "获取最新公开帖子失败: {error}"

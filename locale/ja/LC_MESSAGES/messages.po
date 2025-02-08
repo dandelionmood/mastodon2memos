@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastodon2Memos 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-26 15:12+0100\n"
+"POT-Creation-Date: 2025-02-04 20:36+0100\n"
 "PO-Revision-Date: 2025-01-26 15:26+0100\n"
 "Last-Translator: Pierre Quillery <pierre@quillery.fr>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -22,7 +22,8 @@ msgstr ""
 msgid ""
 "Configuration file not found at {config_path}. Please ensure the file exists."
 msgstr ""
-"設定ファイルが見つかりませんでした。 {config_path} にあるファイルが存在することを確認してください。"
+"設定ファイルが見つかりませんでした。 {config_path} にあるファイルが存在するこ"
+"とを確認してください。"
 
 #: mastodon2memos/commands/__init__.py:30
 #, python-brace-format
@@ -34,18 +35,6 @@ msgstr "設定ファイルにセクション \"{section}\" がありません。
 msgid "Missing key \"{key}\" in section \"{section}\" of configuration file."
 msgstr "設定ファイルのセクション \"{section}\" にキー \"{key}\" がありません。"
 
-#: mastodon2memos/commands/__init__.py:52
-msgid "Failed to connect to Mastodon API."
-msgstr "Mastodon API への接続に失敗しました。"
-
-#: mastodon2memos/commands/__init__.py:68
-msgid "Failed to connect to Memos API."
-msgstr "Memos API への接続に失敗しました。"
-
-#: mastodon2memos/commands/__init__.py:85
-msgid "Failed to connect to Bluesky API."
-msgstr "Bluesky API への接続に失敗しました。"
-
 #: mastodon2memos/commands/bluesky2memos.py:7
 msgid "Publish Bluesky posts as Memos."
 msgstr "Bluesky の投稿を Memos として公開します。"
@@ -56,7 +45,7 @@ msgstr "投稿から新しい Memo を作成する前に質問します。"
 
 #: mastodon2memos/commands/bluesky2memos.py:9
 #: mastodon2memos/commands/mastodon2memos.py:9
-#: mastodon2memos/commands/troubleshoot.py:7
+#: mastodon2memos/commands/troubleshoot.py:8
 msgid "Path to the configuration file."
 msgstr "設定ファイルへのパス。"
 
@@ -141,85 +130,69 @@ msgstr "新しい Toot が Memos に追加されました。"
 msgid "Finished processing toots."
 msgstr "Toot の処理が完了しました。"
 
-#: mastodon2memos/commands/troubleshoot.py:6
+#: mastodon2memos/commands/troubleshoot.py:7
 msgid "Ensure proper connection to Mastodon, Bluesky, and Memos APIs."
 msgstr "Mastodon、Bluesky、Memos API への正しい接続を確認します。"
 
-#: mastodon2memos/commands/troubleshoot.py:11
+#: mastodon2memos/commands/troubleshoot.py:9
+msgid "Display full stack trace on error."
+msgstr ""
+"エラー時に完全なスタックトレースを表示します。"
+
+#: mastodon2memos/commands/troubleshoot.py:13
 #, python-brace-format
 msgid "Reading configuration from: {config_path}"
 msgstr "設定を読み込み中: {config_path}"
 
-#: mastodon2memos/commands/troubleshoot.py:23
+#: mastodon2memos/commands/troubleshoot.py:25
 msgid ""
 "Neither Mastodon nor Bluesky connections are enabled in the configuration."
-msgstr ""
-"設定ファイルで Mastodon または Bluesky が有効になっていません。"
+msgstr "設定ファイルで Mastodon または Bluesky が有効になっていません。"
 
-#: mastodon2memos/commands/troubleshoot.py:29
+#: mastodon2memos/commands/troubleshoot.py:37
 msgid "Successfully connected to Mastodon API."
 msgstr "Mastodon API への接続に成功しました。"
 
-#: mastodon2memos/commands/troubleshoot.py:32
+#: mastodon2memos/commands/troubleshoot.py:39
 #, python-brace-format
 msgid "Successfully resolved Mastodon username to user ID: {user_id}"
 msgstr "Mastodon のユーザー名をユーザー ID に正しく解決しました: {user_id}"
 
-#: mastodon2memos/commands/troubleshoot.py:34
+#: mastodon2memos/commands/troubleshoot.py:41
 msgid "Failed to resolve Mastodon username to user ID."
 msgstr "Mastodon のユーザー名をユーザー ID に解決できませんでした。"
 
-#: mastodon2memos/commands/troubleshoot.py:37
+#: mastodon2memos/commands/troubleshoot.py:44
 #, python-brace-format
 msgid "Failed to connect to Mastodon API: {error}"
 msgstr "Mastodon API への接続に失敗しました: {error}"
 
-#: mastodon2memos/commands/troubleshoot.py:44
+#: mastodon2memos/commands/troubleshoot.py:59
 msgid "Successfully connected to Bluesky API."
 msgstr "Bluesky API への接続に成功しました。"
 
-#: mastodon2memos/commands/troubleshoot.py:47
+#: mastodon2memos/commands/troubleshoot.py:61
 #, python-brace-format
 msgid "Successfully resolved Bluesky username to user ID: {user_id}"
 msgstr "Bluesky のユーザー名をユーザー ID に正しく解決しました: {user_id}"
 
-#: mastodon2memos/commands/troubleshoot.py:49
+#: mastodon2memos/commands/troubleshoot.py:63
 msgid "Failed to resolve Bluesky username to user ID."
 msgstr "Bluesky のユーザー名をユーザー ID に解決できませんでした。"
 
-#: mastodon2memos/commands/troubleshoot.py:52
+#: mastodon2memos/commands/troubleshoot.py:66
 #, python-brace-format
 msgid "Failed to connect to Bluesky API: {error}"
 msgstr "Bluesky API への接続に失敗しました: {error}"
 
-#: mastodon2memos/commands/troubleshoot.py:58
+#: mastodon2memos/commands/troubleshoot.py:79
 msgid "Successfully connected to Memos API."
 msgstr "Memos API への接続に成功しました。"
 
-#: mastodon2memos/commands/troubleshoot.py:60
+#: mastodon2memos/commands/troubleshoot.py:81
 #, python-brace-format
 msgid "Failed to connect to Memos API: {error}"
 msgstr "Memos API への接続に失敗しました: {error}"
-
-#: mastodon2memos/clients/bluesky_client.py:17
-#, python-brace-format
-msgid "Failed to log in to Bluesky: {e}"
-msgstr "Bluesky へのログインに失敗しました: {e}"
-
-#: mastodon2memos/clients/bluesky_client.py:38
-#, python-brace-format
-msgid "Failed to fetch user DID: {e}"
-msgstr "ユーザー DID を取得できませんでした: {e}"
-
-#: mastodon2memos/clients/bluesky_client.py:52
-#, python-brace-format
-msgid "Failed to fetch posts: {e}"
-msgstr "投稿を取得できませんでした: {e}"
-
-#: mastodon2memos/clients/mastodon_client.py:51
-#, python-brace-format
-msgid "Failed to fetch latest public toots: {error}"
-msgstr "最新の公開 Toot を取得できませんでした: {error}"
 
 #: mastodon2memos/converters/bluesky2memos_converter.py:28
 msgid "Post already saved in memos."

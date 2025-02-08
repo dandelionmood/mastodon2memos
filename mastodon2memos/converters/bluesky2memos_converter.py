@@ -1,3 +1,4 @@
+from datetime import datetime
 import html2text
 from mastodon2memos import MASTODON2MEMOS_TAG, _
 from mastodon2memos.clients.bluesky_client import BlueskyClient
@@ -29,25 +30,37 @@ class Bluesky2Memos_Converter:
 
         h = html2text.HTML2Text()
         h.ignore_links = True
-        memo_content = h.handle(post['record']['text'])
+        memo_content = h.handle(post.record.text)
         memo_content += _("> 🌐 [original bluesky post]({url}) posted by [{acct}]({account_url}) #{tag}").format(
             url=post_url, 
-            acct=post['author']['handle'], 
-            account_url="https://"+post['author']['handle'], 
+            acct=post.author.handle,
+            account_url="https://"+post.author.handle,
             tag=MASTODON2MEMOS_TAG)
-
+        
         # Create Memo
         memo = self.memos_client.create(memo_content)
+
+        created_at = datetime.fromisoformat(post.record.created_at)
         # Update Memo to update the creation date
-        self.memos_client.update(memo['name'], post['indexedAt'])
-        
-        # Upload images if any, video unsupported for now
-        if 'embed' in post and 'images' in post['embed']:
-            for image in post['embed']['images']:
+        self.memos_client.update(memo['name'], created_at)
+
+        # Test for existence of embed and images which may not exist 
+        if hasattr(post.record, 'embed') and hasattr(post.record.embed, 'images'):
+
+            # Upload images if any, video unsupported for now
+            for image in post.record.embed.images:
+                # Get the image URL from the known DID and IPLD link
+                did = post.author.did
+                ipld_link = image.image.ref.link 
+
+                # We add the "?.jpg" extension to the image URL to ensure that Memos will display the image
+                # This is not ideal, but it works for now
+                image_url = f"https://cdn.bsky.app/img/feed_fullsize/plain/{did}/{ipld_link}@jpeg?.jpg"
+
                 self.memos_client.upload_resource(
-                    resource_url=image['value'],
+                    resource_url=image_url,
                     memo_name=memo['name'],
-                    created_at=post['indexedAt']
+                    created_at=created_at
                 )
 
         return memo

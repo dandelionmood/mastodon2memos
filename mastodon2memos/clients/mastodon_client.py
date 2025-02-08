@@ -9,6 +9,7 @@ class MastodonClient:
         :param client_id: The client ID for the Mastodon instance.
         :param client_secret: The client secret for the Mastodon instance.
         :param access_token: The access token for the Mastodon instance.
+        :throws MastodonError if an error occurs.
         """
         self.mastodon = Mastodon(
             client_id=client_id,
@@ -17,22 +18,12 @@ class MastodonClient:
             api_base_url=api_base_url
         )
 
-    def test_connection(self) -> bool:
-        """
-        Test the connection to the Mastodon instance.
-        :return: True if the connection is successful, False otherwise.
-        """
-        try:
-            self.mastodon.account_verify_credentials()
-            return True
-        except Exception as e:
-            return False
-
     def get_user_id_from_username(self, username: str) -> int:
         """
         Get the user ID from a given Mastodon username.
         :param username: The Mastodon username.
         :throws MastodonNotFoundError if the username is not found
+        :return: The user ID.
         """
         account = self.mastodon.account_lookup(username)
         return account['id']
@@ -42,10 +33,8 @@ class MastodonClient:
         Get the latest public toots from a given Mastodon user (excluding reblogs & replies).
         :param user_id: The Mastodon user ID.
         :param count: The number of toots to fetch (default is 5).
-        :throws RuntimeError if fetching toots fails
+        :throws MastodonError if an error occurs.
+        :return: A list of toots.
         """
-        try:
-            # Fetch the latest public toots from the user excluding reblogs and replies
-            return self.mastodon.account_statuses(user_id, limit=count, exclude_reblogs=True, exclude_replies=True)
-        except Exception as e:
-            raise RuntimeError(_("Failed to fetch latest public toots: {error}").format(error=e))
+        # Fetch the latest public toots from the user excluding reblogs and replies
+        return self.mastodon.account_statuses(user_id, limit=count, exclude_reblogs=True, exclude_replies=True)

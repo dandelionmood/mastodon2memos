@@ -32,10 +32,10 @@ def bluesky2memos(interactive, config_path):
 
     # Attempt to publish each new post as a memo
     for item in feed:
-        post = item["post"]
+        post = item.post
         post_url = bluesky_client.get_post_url(post)
         click.echo(click.style(_('Processing post: {url}').format(url=post_url), fg='blue'))
-        click.echo(click.style(_('Content:\n{content}').format(content=post["record"]["text"]), fg='blue'))
+        click.echo(click.style(_('Content:\n{content}').format(content=post.record.text), fg='blue')) 
 
         # Check if the post is already saved as a memo
         if memos_client.find_by_bluesky_post_url(post_url):
@@ -50,7 +50,7 @@ def bluesky2memos(interactive, config_path):
         try:
             memo = bluesky2memos_converter.publish_post_as_memo(post)
             click.echo(click.style('✔ ' + _('New post added to memos.'), fg='green'))
-            click.echo(memos_client.get_memo_url(memo["uid"]))
+            click.echo(memos_client.get_memo_url(memo["name"]))
         except RuntimeError as e:
             click.echo(click.style('✘ ' + _('No memo added, an unexpected error occurred.'), fg='red'))
         
