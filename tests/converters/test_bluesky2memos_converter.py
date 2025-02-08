@@ -33,6 +33,7 @@ class TestBluesky2Memos_Convert(BaseTest):
         with self.assertRaises(RuntimeError):
             self.converter.publish_post_as_memo(post)
 
+    # TODO: Replace this with a function that gets an actual Bluesky post instead
     def _create_fake_bluesky_post(self, uri=None):
         """
         Helper method to create a fake Bluesky post.
@@ -41,10 +42,11 @@ class TestBluesky2Memos_Convert(BaseTest):
         """
         fake = Faker()
         return SimpleNamespace(
-            uri=uri if uri else fake.uuid4(),
+            uri=uri if uri else fake.uri(),
             cid=fake.uuid4(),
             author=SimpleNamespace(
-                did=fake.uuid4(),
+                # This is imperfect, as it ties in with an actual Bluesky account
+                did="did:plc:7pk5ufsbzfnxuyvuono2c25i",
                 handle=fake.user_name() + ".bsky.social",
                 display_name=fake.name(),
                 avatar=fake.image_url(),
@@ -52,9 +54,28 @@ class TestBluesky2Memos_Convert(BaseTest):
             ),
             record=SimpleNamespace(
                 text="<br />".join(fake.sentences(nb=3)),
-                created_at=datetime.now().astimezone().strftime("%Y-%m-%dT%H:%M:%S.000Z")
+                created_at=datetime.now().astimezone().strftime("%Y-%m-%dT%H:%M:%S.000Z"),
+                embed=SimpleNamespace(
+                    images=[
+                        SimpleNamespace(
+                            image=SimpleNamespace(
+                                ref=SimpleNamespace(
+                                    # This is imperfect, as it ties in with an actual Bluesky image
+                                    link="bafkreign2wjbzb75zavqyccotuftvymgn5kdsd55mwgjmcvdcdaea45eze"
+                                )
+                            )
+                        ),
+                        SimpleNamespace(
+                            image=SimpleNamespace(
+                                ref=SimpleNamespace(
+                                    # This is imperfect, as it ties in with an actual Bluesky image
+                                    link="bafkreign2wjbzb75zavqyccotuftvymgn5kdsd55mwgjmcvdcdaea45eze"
+                                )
+                            )
+                        )
+                    ]
+                )
             )
-            # no embed
         )
 
     def _get_fake_bluesky_post_uri(self):

@@ -45,7 +45,7 @@ class Bluesky2Memos_Converter:
         self.memos_client.update(memo['name'], created_at)
 
         # Test for existence of embed and images which may not exist 
-        if hasattr(post, 'embed') and hasattr(post.embed, 'images'):
+        if hasattr(post.record, 'embed') and hasattr(post.record.embed, 'images'):
 
             # Upload images if any, video unsupported for now
             for image in post.record.embed.images:
