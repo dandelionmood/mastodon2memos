@@ -2,12 +2,11 @@
 # Copyright (C) 2025 Pierre QUILLERY
 # This file is distributed under the same license as the Mastodon2Memos package.
 # Pierre <pierre@quillery.fr>, 2025.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: Mastodon2Memos 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-04 20:36+0100\n"
+"POT-Creation-Date: 2025-02-11 21:13+0100\n"
 "PO-Revision-Date: 2025-01-26 15:26+0100\n"
 "Last-Translator: Pierre Quillery <pierre@quillery.fr>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -35,31 +34,39 @@ msgstr "設定ファイルにセクション \"{section}\" がありません。
 msgid "Missing key \"{key}\" in section \"{section}\" of configuration file."
 msgstr "設定ファイルのセクション \"{section}\" にキー \"{key}\" がありません。"
 
-#: mastodon2memos/commands/bluesky2memos.py:7
+#: mastodon2memos/commands/bluesky2memos.py:8
 msgid "Publish Bluesky posts as Memos."
 msgstr "Bluesky の投稿を Memos として公開します。"
 
-#: mastodon2memos/commands/bluesky2memos.py:8
+#: mastodon2memos/commands/bluesky2memos.py:9
 msgid "Ask before creating a new memo from a post."
 msgstr "投稿から新しい Memo を作成する前に質問します。"
 
-#: mastodon2memos/commands/bluesky2memos.py:9
-#: mastodon2memos/commands/mastodon2memos.py:9
+#: mastodon2memos/commands/bluesky2memos.py:10
+#: mastodon2memos/commands/mastodon2memos.py:10
 #: mastodon2memos/commands/troubleshoot.py:8
 msgid "Path to the configuration file."
 msgstr "設定ファイルへのパス。"
 
-#: mastodon2memos/commands/bluesky2memos.py:21
+#: mastodon2memos/commands/bluesky2memos.py:22
 msgid "Bluesky is not enabled in the configuration file."
 msgstr "設定ファイルで Bluesky が有効になっていません。"
 
-#: mastodon2memos/commands/bluesky2memos.py:37
+#: mastodon2memos/commands/bluesky2memos.py:35
+msgid "Processing posts"
+msgstr "投稿を処理中"
+
+#: mastodon2memos/commands/bluesky2memos.py:35
+msgid "post"
+msgstr "投稿"
+
+#: mastodon2memos/commands/bluesky2memos.py:44
 #, python-brace-format
 msgid "Processing post: {url}"
 msgstr "投稿を処理中: {url}"
 
-#: mastodon2memos/commands/bluesky2memos.py:38
-#: mastodon2memos/commands/mastodon2memos.py:37
+#: mastodon2memos/commands/bluesky2memos.py:45
+#: mastodon2memos/commands/mastodon2memos.py:44
 #, python-brace-format
 msgid ""
 "Content:\n"
@@ -68,65 +75,73 @@ msgstr ""
 "内容:\n"
 "{content}"
 
-#: mastodon2memos/commands/bluesky2memos.py:42
+#: mastodon2memos/commands/bluesky2memos.py:50
 msgid "Post already saved in memos, skipping."
 msgstr "投稿は既に Memos に保存されています。スキップします。"
 
-#: mastodon2memos/commands/bluesky2memos.py:46
+#: mastodon2memos/commands/bluesky2memos.py:54
 msgid "Do you want to attempt publishing this post as a memo?"
 msgstr "この投稿を Memo として公開しようとしますか？"
 
-#: mastodon2memos/commands/bluesky2memos.py:47
+#: mastodon2memos/commands/bluesky2memos.py:55
 msgid "Skipping post."
 msgstr "投稿をスキップします。"
 
-#: mastodon2memos/commands/bluesky2memos.py:52
+#: mastodon2memos/commands/bluesky2memos.py:61
 msgid "New post added to memos."
 msgstr "新しい投稿が Memos に追加されました。"
 
-#: mastodon2memos/commands/bluesky2memos.py:55
-#: mastodon2memos/commands/mastodon2memos.py:54
+#: mastodon2memos/commands/bluesky2memos.py:65
+#: mastodon2memos/commands/mastodon2memos.py:64
 msgid "No memo added, an unexpected error occurred."
 msgstr "Memo が追加されませんでした。予期しないエラーが発生しました。"
 
-#: mastodon2memos/commands/bluesky2memos.py:59
+#: mastodon2memos/commands/bluesky2memos.py:70
 msgid "Finished processing posts."
 msgstr "投稿の処理が完了しました。"
 
-#: mastodon2memos/commands/mastodon2memos.py:7
+#: mastodon2memos/commands/mastodon2memos.py:8
 msgid "Publish Mastodon toots as Memos."
 msgstr "Mastodon の Toot を Memos として公開します。"
 
-#: mastodon2memos/commands/mastodon2memos.py:8
+#: mastodon2memos/commands/mastodon2memos.py:9
 msgid "Ask before creating a new memo from a toot."
 msgstr "Toot から新しい Memo を作成する前に質問します。"
 
-#: mastodon2memos/commands/mastodon2memos.py:21
+#: mastodon2memos/commands/mastodon2memos.py:22
 msgid "Mastodon is not enabled in the configuration file."
 msgstr "設定ファイルで Mastodon が有効になっていません。"
 
-#: mastodon2memos/commands/mastodon2memos.py:36
+#: mastodon2memos/commands/mastodon2memos.py:35
+msgid "Processing toots"
+msgstr "Toot を処理中"
+
+#: mastodon2memos/commands/mastodon2memos.py:35
+msgid "toot"
+msgstr "トゥート"
+
+#: mastodon2memos/commands/mastodon2memos.py:43
 #, python-brace-format
 msgid "Processing toot: {url}"
 msgstr "Toot を処理中: {url}"
 
-#: mastodon2memos/commands/mastodon2memos.py:41
+#: mastodon2memos/commands/mastodon2memos.py:49
 msgid "Toot already saved in memos, skipping."
 msgstr "Toot は既に Memos に保存されています。スキップします。"
 
-#: mastodon2memos/commands/mastodon2memos.py:45
+#: mastodon2memos/commands/mastodon2memos.py:53
 msgid "Do you want to attempt publishing this toot as a memo?"
 msgstr "この Toot を Memo として公開しようとしますか？"
 
-#: mastodon2memos/commands/mastodon2memos.py:46
+#: mastodon2memos/commands/mastodon2memos.py:54
 msgid "Skipping toot."
 msgstr "Toot をスキップします。"
 
-#: mastodon2memos/commands/mastodon2memos.py:51
+#: mastodon2memos/commands/mastodon2memos.py:60
 msgid "New toot added to memos."
 msgstr "新しい Toot が Memos に追加されました。"
 
-#: mastodon2memos/commands/mastodon2memos.py:57
+#: mastodon2memos/commands/mastodon2memos.py:69
 msgid "Finished processing toots."
 msgstr "Toot の処理が完了しました。"
 
@@ -136,8 +151,7 @@ msgstr "Mastodon、Bluesky、Memos API への正しい接続を確認します�
 
 #: mastodon2memos/commands/troubleshoot.py:9
 msgid "Display full stack trace on error."
-msgstr ""
-"エラー時に完全なスタックトレースを表示します。"
+msgstr "エラー時に完全なスタックトレースを表示します。"
 
 #: mastodon2memos/commands/troubleshoot.py:13
 #, python-brace-format
@@ -194,16 +208,16 @@ msgstr "Memos API への接続に成功しました。"
 msgid "Failed to connect to Memos API: {error}"
 msgstr "Memos API への接続に失敗しました: {error}"
 
-#: mastodon2memos/converters/bluesky2memos_converter.py:28
+#: mastodon2memos/converters/bluesky2memos_converter.py:29
 msgid "Post already saved in memos."
 msgstr "投稿は既に Memos に保存されています。"
 
-#: mastodon2memos/converters/bluesky2memos_converter.py:33
+#: mastodon2memos/converters/bluesky2memos_converter.py:34
 #, python-brace-format
 msgid ""
 "> 🌐 [original bluesky post]({url}) posted by [{acct}]({account_url}) #{tag}"
 msgstr ""
-"> 🌐 [original bluesky post]({url}) posted by [{acct}]({account_url}) #{tag}"
+"> 🌐 [元の Bluesky 投稿]({url}) 投稿者 [{acct}]({account_url}) #{tag}"
 
 #: mastodon2memos/converters/mastodon2memos_converter.py:28
 msgid "Toot already saved in memos."
@@ -212,4 +226,4 @@ msgstr "Toot は既に Memos に保存されています。"
 #: mastodon2memos/converters/mastodon2memos_converter.py:33
 #, python-brace-format
 msgid "> 🌐 [original toot]({url}) posted by [{acct}]({account_url}) #{tag}"
-msgstr "> 🌐 [original toot]({url}) posted by [{acct}]({account_url}) #{tag}"
+msgstr "> 🌐 [元の Toot]({url}) 投稿者 [{acct}]({account_url}) #{tag}"

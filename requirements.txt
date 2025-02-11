@@ -4,3 +4,4 @@ PyYAML
 requests
 html2text
 atproto
+tqdm  # Add tqdm for progress bar

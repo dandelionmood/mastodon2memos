@@ -2,6 +2,7 @@ import click
 from mastodon2memos import _
 from mastodon2memos.commands import initialize_bluesky_client, is_bluesky_enabled, validate_and_read_config, initialize_memos_client
 from mastodon2memos.converters.bluesky2memos_converter import Bluesky2Memos_Converter
+from tqdm import tqdm
 
 @click.command(name='bluesky2memos', 
                help=_('Publish Bluesky posts as Memos.'))
@@ -31,15 +32,22 @@ def bluesky2memos(interactive, config_path):
     feed = bluesky_client.get_latest_posts(user_did, limit=30)  # Load 30 posts
 
     # Attempt to publish each new post as a memo
-    for item in feed:
+    posts_to_process = tqdm(feed, desc=_('Processing posts'), unit=_('post'), ncols=80, colour="blue", leave=False) \
+        if not interactive \
+        else feed
+    
+    for item in posts_to_process:
+        
         post = item.post
         post_url = bluesky_client.get_post_url(post)
-        click.echo(click.style(_('Processing post: {url}').format(url=post_url), fg='blue'))
-        click.echo(click.style(_('Content:\n{content}').format(content=post.record.text), fg='blue')) 
+        if interactive:
+            click.echo(click.style(_('Processing post: {url}').format(url=post_url), fg='blue'))
+            click.echo(click.style(_('Content:\n{content}').format(content=post.record.text), fg='blue')) 
 
         # Check if the post is already saved as a memo
         if memos_client.find_by_bluesky_post_url(post_url):
-            click.echo(click.style('✘ ' + _('Post already saved in memos, skipping.'), fg='yellow'))
+            if interactive:
+                click.echo(click.style('✘ ' + _('Post already saved in memos, skipping.'), fg='yellow'))
             continue
 
         if interactive:
@@ -49,12 +57,16 @@ def bluesky2memos(interactive, config_path):
 
         try:
             memo = bluesky2memos_converter.publish_post_as_memo(post)
-            click.echo(click.style('✔ ' + _('New post added to memos.'), fg='green'))
-            click.echo(memos_client.get_memo_url(memo["name"]))
+            if interactive:
+                click.echo(click.style('✔ ' + _('New post added to memos.'), fg='green'))
+                click.echo(memos_client.get_memo_url(memo["name"]))
         except RuntimeError as e:
-            click.echo(click.style('✘ ' + _('No memo added, an unexpected error occurred.'), fg='red'))
+            if interactive:
+                click.echo(click.style('✘ ' + _('No memo added, an unexpected error occurred.'), fg='red'))
         
-        click.echo('---')
+        if interactive:
+            click.echo('---')
         
     click.echo(click.style(_('Finished processing posts.'), fg='green'))
+
     return True

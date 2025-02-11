@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mastodon2Memos 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-04 20:36+0100\n"
+"POT-Creation-Date: 2025-02-11 21:13+0100\n"
 "PO-Revision-Date: 2025-01-26 15:26+0100\n"
 "Last-Translator: Pierre Quillery <pierre@quillery.fr>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -36,31 +36,39 @@ msgid "Missing key \"{key}\" in section \"{section}\" of configuration file."
 msgstr ""
 "Schlüssel \"{key}\" fehlt in Abschnitt \"{section}\" der Konfigurationsdatei."
 
-#: mastodon2memos/commands/bluesky2memos.py:7
+#: mastodon2memos/commands/bluesky2memos.py:8
 msgid "Publish Bluesky posts as Memos."
 msgstr "Veröffentliche Bluesky-Beiträge als Memos."
 
-#: mastodon2memos/commands/bluesky2memos.py:8
+#: mastodon2memos/commands/bluesky2memos.py:9
 msgid "Ask before creating a new memo from a post."
 msgstr "Fragen, bevor ein neues Memo aus einem Beitrag erstellt wird."
 
-#: mastodon2memos/commands/bluesky2memos.py:9
-#: mastodon2memos/commands/mastodon2memos.py:9
+#: mastodon2memos/commands/bluesky2memos.py:10
+#: mastodon2memos/commands/mastodon2memos.py:10
 #: mastodon2memos/commands/troubleshoot.py:8
 msgid "Path to the configuration file."
 msgstr "Pfad zur Konfigurationsdatei."
 
-#: mastodon2memos/commands/bluesky2memos.py:21
+#: mastodon2memos/commands/bluesky2memos.py:22
 msgid "Bluesky is not enabled in the configuration file."
 msgstr "Bluesky ist nicht in der Konfigurationsdatei aktiviert."
 
-#: mastodon2memos/commands/bluesky2memos.py:37
+#: mastodon2memos/commands/bluesky2memos.py:35
+msgid "Processing posts"
+msgstr "Beiträge verarbeiten"
+
+#: mastodon2memos/commands/bluesky2memos.py:35
+msgid "post"
+msgstr "Beitrag"
+
+#: mastodon2memos/commands/bluesky2memos.py:44
 #, python-brace-format
 msgid "Processing post: {url}"
 msgstr "Verarbeite Beitrag: {url}"
 
-#: mastodon2memos/commands/bluesky2memos.py:38
-#: mastodon2memos/commands/mastodon2memos.py:37
+#: mastodon2memos/commands/bluesky2memos.py:45
+#: mastodon2memos/commands/mastodon2memos.py:44
 #, python-brace-format
 msgid ""
 "Content:\n"
@@ -69,65 +77,73 @@ msgstr ""
 "Inhalt:\n"
 "{content}"
 
-#: mastodon2memos/commands/bluesky2memos.py:42
+#: mastodon2memos/commands/bluesky2memos.py:50
 msgid "Post already saved in memos, skipping."
 msgstr "Beitrag bereits in Memos gespeichert, überspringen."
 
-#: mastodon2memos/commands/bluesky2memos.py:46
+#: mastodon2memos/commands/bluesky2memos.py:54
 msgid "Do you want to attempt publishing this post as a memo?"
 msgstr "Möchten Sie versuchen, diesen Beitrag als Memo zu veröffentlichen?"
 
-#: mastodon2memos/commands/bluesky2memos.py:47
+#: mastodon2memos/commands/bluesky2memos.py:55
 msgid "Skipping post."
 msgstr "Überspringe Beitrag."
 
-#: mastodon2memos/commands/bluesky2memos.py:52
+#: mastodon2memos/commands/bluesky2memos.py:61
 msgid "New post added to memos."
 msgstr "Neuer Beitrag zu Memos hinzugefügt."
 
-#: mastodon2memos/commands/bluesky2memos.py:55
-#: mastodon2memos/commands/mastodon2memos.py:54
+#: mastodon2memos/commands/bluesky2memos.py:65
+#: mastodon2memos/commands/mastodon2memos.py:64
 msgid "No memo added, an unexpected error occurred."
 msgstr "Kein Memo hinzugefügt, ein unerwarteter Fehler ist aufgetreten."
 
-#: mastodon2memos/commands/bluesky2memos.py:59
+#: mastodon2memos/commands/bluesky2memos.py:70
 msgid "Finished processing posts."
 msgstr "Verarbeitung der Beiträge abgeschlossen."
 
-#: mastodon2memos/commands/mastodon2memos.py:7
+#: mastodon2memos/commands/mastodon2memos.py:8
 msgid "Publish Mastodon toots as Memos."
 msgstr "Veröffentliche Mastodon-Toots als Memos."
 
-#: mastodon2memos/commands/mastodon2memos.py:8
+#: mastodon2memos/commands/mastodon2memos.py:9
 msgid "Ask before creating a new memo from a toot."
 msgstr "Fragen, bevor ein neues Memo aus einem Toot erstellt wird."
 
-#: mastodon2memos/commands/mastodon2memos.py:21
+#: mastodon2memos/commands/mastodon2memos.py:22
 msgid "Mastodon is not enabled in the configuration file."
 msgstr "Mastodon ist nicht in der Konfigurationsdatei aktiviert."
 
-#: mastodon2memos/commands/mastodon2memos.py:36
+#: mastodon2memos/commands/mastodon2memos.py:35
+msgid "Processing toots"
+msgstr "Toots verarbeiten"
+
+#: mastodon2memos/commands/mastodon2memos.py:35
+msgid "toot"
+msgstr "toot"
+
+#: mastodon2memos/commands/mastodon2memos.py:43
 #, python-brace-format
 msgid "Processing toot: {url}"
 msgstr "Verarbeite Toot: {url}"
 
-#: mastodon2memos/commands/mastodon2memos.py:41
+#: mastodon2memos/commands/mastodon2memos.py:49
 msgid "Toot already saved in memos, skipping."
 msgstr "Toot bereits in Memos gespeichert, überspringen."
 
-#: mastodon2memos/commands/mastodon2memos.py:45
+#: mastodon2memos/commands/mastodon2memos.py:53
 msgid "Do you want to attempt publishing this toot as a memo?"
 msgstr "Möchten Sie versuchen, diesen Toot als Memo zu veröffentlichen?"
 
-#: mastodon2memos/commands/mastodon2memos.py:46
+#: mastodon2memos/commands/mastodon2memos.py:54
 msgid "Skipping toot."
 msgstr "Überspringe Toot."
 
-#: mastodon2memos/commands/mastodon2memos.py:51
+#: mastodon2memos/commands/mastodon2memos.py:60
 msgid "New toot added to memos."
 msgstr "Neuer Toot zu Memos hinzugefügt."
 
-#: mastodon2memos/commands/mastodon2memos.py:57
+#: mastodon2memos/commands/mastodon2memos.py:69
 msgid "Finished processing toots."
 msgstr "Verarbeitung der Toots abgeschlossen."
 
@@ -139,7 +155,7 @@ msgstr ""
 
 #: mastodon2memos/commands/troubleshoot.py:9
 msgid "Display full stack trace on error."
-msgstr ""
+msgstr "Vollständigen Stapelrückverfolgung bei Fehlern anzeigen."
 
 #: mastodon2memos/commands/troubleshoot.py:13
 #, python-brace-format
@@ -197,11 +213,11 @@ msgstr "Erfolgreich mit Memos API verbunden."
 msgid "Failed to connect to Memos API: {error}"
 msgstr "Verbindung zu Memos API fehlgeschlagen: {error}"
 
-#: mastodon2memos/converters/bluesky2memos_converter.py:28
+#: mastodon2memos/converters/bluesky2memos_converter.py:29
 msgid "Post already saved in memos."
 msgstr "Beitrag bereits in Memos gespeichert."
 
-#: mastodon2memos/converters/bluesky2memos_converter.py:33
+#: mastodon2memos/converters/bluesky2memos_converter.py:34
 #, python-brace-format
 msgid ""
 "> 🌐 [original bluesky post]({url}) posted by [{acct}]({account_url}) #{tag}"
